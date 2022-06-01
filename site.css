@@ -25,11 +25,11 @@ body,html {
 }
 
 
-img {
+/*img {
     display: block;
     margin-left: auto;
     margin-right: auto;    
-}
+}*/
 
 #header .container{
     display: flex; 
@@ -60,4 +60,34 @@ img {
 
 .top-nav ul li a:hover {
     color: rgb(187, 72, 72);
+}
+
+.banner img{
+    max-height: 100%;
+    max-width: 100%;
+    vertical-align: top;
+    position: relative;
+}
+
+.banner h4{
+    position: fixed;
+    color: rgb(229, 218, 218);
+    font-size: 7vmin;
+    left: 15vh;
+    top: 35vh;
+    font-weight: bold;
+}
+
+.banner button{
+    position: absolute;
+    left: 15vh;
+    top: 55vh;
+    background-color: #4b4f4b; 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 3vmin;
 }
