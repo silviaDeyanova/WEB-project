@@ -1,6 +1,6 @@
 <?php
 
-class Db
+class DB
 {
     private $connection;
 
