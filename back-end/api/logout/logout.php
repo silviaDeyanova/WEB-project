@@ -20,3 +20,5 @@ if (session_destroy()) {
     http_response_code(500);
     exit(json_encode(["status" => "error", "message" => "Възникна грешка при опита за излизане от системата!"]));
 }
+
+?>

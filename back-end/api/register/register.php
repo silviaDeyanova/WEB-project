@@ -2,15 +2,21 @@
 
 require_once('../../db/connection/connect.php');
 
-// $params = file_get_contents('php://input');
-// $data = null;
+$params = file_get_contents('php://input');
+$data = json_decode($params, true);
 
-$username = $_POST['username'];
-$password = $_POST['password'];
+// $username = $_POST['username'];
+// $password = $_POST['password'];
+// $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+// $email = $_POST['email'];
+// $fullName = $_POST['fullName'];
+// $fn = $_POST['fn'];
+$username = $data['username'];
+$password = $data['password'];
 $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-$email = $_POST['email'];
-$fullName = $_POST['fullName'];
-$fn = $_POST['fn'];
+$email = $data['email'];
+$fullName = $data['fullName'];
+$fn = $data['fn'];
 
 try {
     $db = new DB();
@@ -64,3 +70,5 @@ try {
     http_response_code(500);
     exit(json_encode(["status" => "error", "message" => "Възникна грешка при регистрацията!"]));
 }
+
+?>
