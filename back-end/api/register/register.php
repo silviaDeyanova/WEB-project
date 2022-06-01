@@ -52,7 +52,7 @@ try {
         "email" => $email
     ])) {
 
-        $userId = $connection->lastInsertId(); // get the newly created user's id
+        $userId = $connection->lastInsertId();
         session_start();
         $user = ["id" => $userId, "username" => $username, "password" => $hashedPassword, "full_name" => $fullName, "fn" => $fn, "email" => $email];
         $_SESSION["user"] = $user;
