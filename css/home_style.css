@@ -1,29 +1,28 @@
-body,html {
-    margin: 0px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 2.6vmin;
-    scroll-behavior: smooth;
-    position: relative;
-    text-align: justify;
+body,
+html {
+  margin: 0px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 2.6vmin;
+  scroll-behavior: smooth;
+  position: relative;
+  text-align: justify;
 }
 
 #header {
-    background-color: white;
-    padding:5px 0px;
-    width: 100vw;
-    height: fit-content; 
-    position: fixed;
-    border-bottom: solid 1px rgba(98, 98, 98, 0.5);
-    align-items: center;
+  background-color: white;
+  padding: 5px 0px;
+  width: 100vw;
+  height: fit-content;
+  position: fixed;
+  border-bottom: solid 1px rgba(98, 98, 98, 0.5);
+  align-items: center;
 }
-
 
 .logo {
-    width: 15vmin;
-    margin:0;
-    padding: 0;
+  width: 15vmin;
+  margin: 0;
+  padding: 0;
 }
-
 
 /*img {
     display: block;
@@ -31,63 +30,77 @@ body,html {
     margin-right: auto;    
 }*/
 
-#header .container{
-    display: flex; 
-    justify-content:space-around; 
-    align-items: center;
-    width: 100vw;
+#header .container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100vw;
 }
 
 .top-nav ul {
-    margin-top: 0px;
-    margin-right: 0px;
-    list-style: none;
+  margin-top: 0px;
+  margin-right: 0px;
+  list-style: none;
 }
 
-.top-nav ul li { 
-    float: left;
+.top-nav ul li {
+  float: left;
 }
 
-.top-nav ul li a { 
-    font-size: 2.5vmin;
-    font-weight:600;
-    text-decoration: none;
-    font-family: Arial, Helvetica, sans-serif;
-    color: rgb(55, 50, 55); 
-    text-shadow: 2px 5px 4px #0000006e;
-    margin-left: 35px;
+.top-nav ul li a {
+  font-size: 2.5vmin;
+  font-weight: 600;
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(55, 50, 55);
+  text-shadow: 2px 2px 2px #0000006e;
+  margin-left: 35px;
+  padding: 7px;
 }
 
 .top-nav ul li a:hover {
-    color: rgb(187, 72, 72);
+  color: rgb(187, 72, 72);
+  border-bottom: 3px solid rgb(187, 72, 72);
+  transition: all 0.2s ease-in-out;
+  padding-bottom: 14px;
 }
 
-.banner img{
-    max-height: 100%;
-    max-width: 100%;
-    vertical-align: top;
-    position: relative;
+.banner img {
+  max-height: 100%;
+  max-width: 100%;
+  vertical-align: top;
+  position: relative;
 }
 
-.banner h4{
-    position: fixed;
-    color: rgb(229, 218, 218);
-    font-size: 7vmin;
-    left: 15vh;
-    top: 35vh;
-    font-weight: bold;
+.banner h4 {
+  position: fixed;
+  color: rgb(229, 218, 218);
+  font-size: 7vmin;
+  left: 15vh;
+  top: 35vh;
+  font-weight: bold;
 }
 
-.banner button{
-    position: absolute;
-    left: 15vh;
-    top: 55vh;
-    background-color: #4b4f4b; 
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 3vmin;
+.banner button {
+  position: absolute;
+  left: 15vh;
+  top: 55vh;
+  background-color: #4b4f4b;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 3vmin;
+}
+
+button {
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+button:hover {
+  background-color: #7a7a7a;
+  transition: 0.5s;
 }
