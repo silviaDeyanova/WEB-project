@@ -31,11 +31,11 @@ try {
 
     if ($stmt->rowCount() != 0) {
         http_response_code(400);
-        exit(json_encode(["status" => "error", "message" => "Потребител с такова потребителско име вече съществува!"]));
+        exit(json_encode(["status" => "error", "message" => "Потребител с такова потребителско име вече съществува!"], JSON_UNESCAPED_UNICODE));
     }
 } catch (PDOException $e) {
     http_response_code(500);
-    return json_encode(["status" => "error", "message" => "Възникна грешка при регистрацията!"]);
+    return json_encode(["status" => "error", "message" => "Възникна грешка при регистрацията!"], JSON_UNESCAPED_UNICODE);
 }
 
 try {
@@ -61,14 +61,14 @@ try {
         setcookie("password", $password, time() + 60 * 60 * 2, "/");
 
         http_response_code(201);
-        exit(json_encode(["status" => "success", "message" => "Успешна регистрация!"]));
+        exit(json_encode(["status" => "success", "message" => "Успешна регистрация!"], JSON_UNESCAPED_UNICODE));
     } else {
         http_response_code(500);
-        exit(json_encode(["status" => "error", "message" => "Възникна грешка при регистрацията!"]));
+        exit(json_encode(["status" => "error", "message" => "Възникна грешка при регистрацията!"], JSON_UNESCAPED_UNICODE));
     }
 } catch (PDOException $e) {
     http_response_code(500);
-    exit(json_encode(["status" => "error", "message" => "Възникна грешка при регистрацията!"]));
+    exit(json_encode(["status" => "error", "message" => "Възникна грешка при регистрацията!"], JSON_UNESCAPED_UNICODE));
 }
 
 ?>

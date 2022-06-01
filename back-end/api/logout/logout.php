@@ -15,10 +15,10 @@ if (isset($_COOKIE["password"])) {
 
 if (session_destroy()) {
     http_response_code(200);
-    exit(json_encode(["status" => "success", "message" => "Успешно излязохте от системата!"]));
+    exit(json_encode(["status" => "success", "message" => "Успешно излязохте от системата!"], JSON_UNESCAPED_UNICODE));
 } else {
     http_response_code(500);
-    exit(json_encode(["status" => "error", "message" => "Възникна грешка при опита за излизане от системата!"]));
+    exit(json_encode(["status" => "error", "message" => "Възникна грешка при опита за излизане от системата!"], JSON_UNESCAPED_UNICODE));
 }
 
 ?>
