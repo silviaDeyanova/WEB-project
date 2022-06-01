@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="css/forum_style.css" rel="stylesheet"> 
+    <title>Форум</title>
+  </head>
+  <body>
+    <article class="main">
+        <section class="top-bar">
+            <h1>
+                Форум
+            </h1>
+        </section>
+        <ol>
+        </ol>
+    </article>
+    <script src="forum_data.js"></script>
+    <script>
+        console.log(threads);
+        let container=document.querySelector('ol');
+        for(let thread of threads){
+            var html=`
+            <li class="row">
+                <a href="/thread.html?id=${thread.id}">
+                    <h4 class="title">${thread.title} </h4>
+                    <section class="bottom">
+                        <p class="time">${new Date(thread.date).toLocaleString()}</p>
+                        <p class="coment-count">${thread.comments.length} комeнтарa</p>
+                    </section>
+                </a>
+            </li>
+            `
+            container.insertAdjacentHTML('beforeend',html);
+        }
+    </script>
+
+</body>
+</html>
