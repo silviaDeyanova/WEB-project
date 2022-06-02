@@ -100,5 +100,5 @@ html {
 
 button:hover {
   background-color: #7a7a7a;
-  transition: 0.5s;
+  transition: all 0.4s ease-in-out;
 }
