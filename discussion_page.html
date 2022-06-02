@@ -12,31 +12,17 @@
         <h1>Страница за дискусии</h1>
     </section>
     <article class="main">
-        <section class="header">
-            <h4 class="title">Title 1 </h4>
-            <section class="bottom">
-                <p class="time">4/4/2022</p>
-                <p class="coment-count">4com</p>
-            </section>
-        </section>
+        <section class="header"></section>
         <textarea></textarea>
         <button>add coment</button>
-        <section class="comments">
-            <section class="comment">
-                <section class="top-comment">
-                    <p class="user">Asibe</p>
-                    <p class="coment-ts">8/4/2022</p>
-                </section>
-                <p class="comment-content">Here is coment text</p>
-            </section>
-        </section>
+        <section class="comments"></section>
     </article>
     <script src="forum_data.js"></script>
     <script>
-        console.log(threads);
+        //console.log(threads);
         let id=window.location.search.slice(1);
         let thread=threads.find(t=>t.id == id);
-        console.log(thread);
+        //console.log(thread);
         let header=document.querySelector('.header');
         let headerhtml=`
             <h4 class="title">${thread.title} </h4>
@@ -45,6 +31,40 @@
                 <p class="coment-count">${thread.comments.length} коментара</p>
             </section>
         `
+        header.insertAdjacentHTML('beforeend',headerhtml);
+
+        
+        function addComment(comment){
+                let commenthtml=`
+                <section class="comment">
+                    <section class="top-comment">
+                        <p class="user">${comment.author}</p>
+                        <p class="coment-ts">${new Date(comment.date).toLocaleString()}</p>
+                    </section>
+                    <p class="comment-content">${comment.contend}</p>
+                </section>
+                `
+                comments.insertAdjacentHTML('beforeend',commenthtml);
+        }
+
+        var comments=document.querySelector('.comments');
+        for(let comment of thread.comments){
+            addComment(comment);
+        }
+
+        let btn =document.querySelector('button');
+        btn.addEventListener('click',function(){
+            let txt=document.querySelector('textarea');
+            var comment={
+                contend:txt.value,
+                date:Date.now(),
+                author:'User'
+            }
+            addComment(comment);
+            txt.value='';
+            thread.comments.push(comment);
+            localStorage.setItem('threads',JSON.stringify(threads));
+        });
     </script>
 </body>
 </html>

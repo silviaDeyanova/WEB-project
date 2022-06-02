@@ -8,12 +8,12 @@
     <title>Форум</title>
   </head>
   <body>
+    <section class="top-bar">
+          <h1>
+              Форум
+          </h1>
+    </section>
     <article class="main">
-        <section class="top-bar">
-            <h1>
-                Форум
-            </h1>
-        </section>
         <ol>
         </ol>
     </article>
@@ -24,7 +24,7 @@
         for(let thread of threads){
             var html=`
             <li class="row">
-                <a href="/thread.html?id=${thread.id}">
+                <a href="discussion_page.html?${thread.id}">
                     <h4 class="title">${thread.title} </h4>
                     <section class="bottom">
                         <p class="time">${new Date(thread.date).toLocaleString()}</p>

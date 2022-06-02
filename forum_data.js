@@ -1,4 +1,4 @@
-var threads = [
+var defaultThreads = [
     {
         id: 1,
         title: "Тема 1",
@@ -38,3 +38,12 @@ var threads = [
         ]
     }
 ]
+
+var threads = defaultThreads
+if (localStorage && localStorage.getItem('threads')) {
+    threads = JSON.parse(localStorage.getItem('threads'));
+} else {
+    threads = defaultThreads;
+    localStorage.setItem('threads', JSON.stringify(defaultThreads));
+}
+//window.localStorage.clear();
