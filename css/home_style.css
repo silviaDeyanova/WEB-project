@@ -93,11 +93,9 @@ html {
   text-decoration: none;
   display: inline-block;
   font-size: 3vmin;
-}
-
-button {
   border-radius: 4px;
   font-weight: bold;
+  cursor: pointer;
 }
 
 button:hover {
