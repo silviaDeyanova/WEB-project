@@ -1,14 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
-</head>
-<body>
+    <link rel="stylesheet" href="./css/style.css" />
+    <script async defer src="javascript/sendData.js"></script>
+  </head>
+  <body>
     <header>
-        <h1>Алумни клуб на СУ</h1>
+      <h1>Алумни клуб на СУ</h1>
     </header>
-</body>
+    <div class="container">
+      <h2>Вход</h2>
+      <form method="post">
+        <input
+          type="text"
+          name="username"
+          id="username"
+          placeholder="Потребителско име"
+        />
+        <input
+          type="password"
+          name="password"
+          id="password"
+          placeholder="Парола"
+        />
+        <div id="buttons">
+          <button id="login">Влизане</button>
+          <button id="register">Регистрация</button>
+        </div>
+      </form>
+    </div>
+  </body>
 </html>
