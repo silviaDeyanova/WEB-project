@@ -9,8 +9,6 @@ const register = (event) => {
   responseMsg.classList.remove("error");
   responseMsg.classList.remove("success");
 
-  //   debugger;
-
   let data = {};
   fields.forEach((field) => {
     data[field.name] = field.value;

@@ -8,8 +8,6 @@ function login()
     $user = json_decode($params, true);
     $username = $user["username"];
     $password = $user["password"];
-    // $username = $_POST["username"];
-    // $password = $_POST["password"];
     $userObject = ["username" => $username, "password" => $password];
     $response = createUserSession($userObject);
     http_response_code($response["code"]);
