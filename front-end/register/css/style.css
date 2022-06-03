@@ -69,3 +69,19 @@ input:focus {
   outline: none;
   border: 1px solid royalblue;
 }
+
+.error {
+  color: red;
+  font-size: 0.8em;
+  margin: 5px;
+}
+
+.success {
+  color: green;
+  font-size: 0.8em;
+  margin: 5px;
+}
+
+.hidden {
+  display: none !important;
+}

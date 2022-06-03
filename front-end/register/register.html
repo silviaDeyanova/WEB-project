@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Register</title>
-    <link rel="stylesheet" href="css/style.css"
+    <link rel="stylesheet" href="css/style.css" />
+    <script async defer src="javascript/sendData.js"></script>
   </head>
   <body>
     <header>
@@ -29,7 +30,8 @@
         <input type="email" name="email" id="email" placeholder="Имейл" />
         <input type="text" name="fullName" id="fullName" placeholder="Имена" />
         <input type="text" name="fn" id="fn" placeholder="Факултетен номер" />
-        <button>Регистрация</button>
+        <div class="hidden" id="response"></div>
+        <button id="btn">Регистрация</button>
       </form>
     </div>
   </body>

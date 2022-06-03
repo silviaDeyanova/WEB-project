@@ -5,12 +5,6 @@ require_once('../../db/connection/connect.php');
 $params = file_get_contents('php://input');
 $data = json_decode($params, true);
 
-// $username = $_POST['username'];
-// $password = $_POST['password'];
-// $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-// $email = $_POST['email'];
-// $fullName = $_POST['fullName'];
-// $fn = $_POST['fn'];
 $username = $data['username'];
 $password = $data['password'];
 $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
@@ -29,7 +23,7 @@ try {
     $statement = $connection->prepare($query);
     $statement->execute(["username" => $username]);
 
-    if ($stmt->rowCount() != 0) {
+    if ($statement->rowCount() != 0) {
         http_response_code(400);
         exit(json_encode(["status" => "error", "message" => "Потребител с такова потребителско име вече съществува!"], JSON_UNESCAPED_UNICODE));
     }
