@@ -1,5 +1,8 @@
 body {
   height: 90vh;
+  background-image: url("../../../img/Sofia_University_-_FMI_2.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 h1,
@@ -78,6 +81,7 @@ button {
   justify-content: center;
   align-items: center;
   margin: 0 auto;
+  background-color: #FFFFFF;
 }
 
 h2 {
@@ -126,7 +130,7 @@ input:focus {
   font-family: Arial, Helvetica, sans-serif;
   color: rgb(55, 50, 55);
   text-shadow: 2px 2px 2px #0000006e;
-  margin-left: 35px;
+  margin-left: 150%;
   padding: 7px;
 }
 
