@@ -105,7 +105,7 @@ input:focus {
   font-family: Arial, Helvetica, sans-serif;
   color: rgb(55, 50, 55);
   text-shadow: 2px 2px 2px #0000006e;
-  margin-left: 35px;
+  margin-left: 150%;
   padding: 7px;
 }
 
