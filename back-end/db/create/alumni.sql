@@ -31,21 +31,25 @@ USE `alumni`;
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
-  `username` varchar(30) NOT NULL,
+  `username` varchar(30) NOT NULL UNIQUE,
   `password` varchar(50) NOT NULL,
-  `full_name` varchar(50) DEFAULT NULL,
-  `fn` int(11) NOT NULL,
-  `email` varchar(50) DEFAULT NULL
+  `full_name` varchar(50) NOT NULL,
+  `fn` int(11) NOT NULL UNIQUE,
+  `email` varchar(50) NOT NULL UNIQUE,
+  `address` varchar(50) NOT NULL, 
+  `graduation` year(4) DEFAULT 1970,
+  `major` varchar(50) NOT NULL,
+  `group` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `password`, `full_name`, `fn`, `email`) VALUES
-(2, 'sjdejanova', '$2y$10$kfa3dpzmQACfmNdtHS4OUOKNssNZbIRHyMr4K7kpy/Y', 'Silvia Deyanova', 62123, 'sjdejanova@uni-sofia.bg'),
-(3, 'stanislgi1', '$2y$10$g0cNI/o3HbVmbwZkLXuuKuqbvJNr4/b3TWIU6vXTzSe', 'Stanislava Ivanova', 62463, 'stanislgi1@uni-sofia.bg'),
-(4, 'arhalachev', '$2y$10$uaDBQbImO2I0OyPZ8IlUwuM0FUE5inxsSIkjF7Gf0ki', 'Asibe Halacheva', 62497, 'arhalachev@uni-sofia.bg');
+INSERT INTO `users` (`id`, `username`, `password`, `full_name`, `fn`, `email`, `address`, `graduation`, `major`, `group`) VALUES
+(2, 'sjdejanova', '$2y$10$kfa3dpzmQACfmNdtHS4OUOKNssNZbIRHyMr4K7kpy/Y', 'Silvia Deyanova', 62123, 'sjdejanova@uni-sofia.bg', 'Sofia, Bulgaria', 2023, 'Software Engineering', 3),
+(3, 'stanislgi1', '$2y$10$g0cNI/o3HbVmbwZkLXuuKuqbvJNr4/b3TWIU6vXTzSe', 'Stanislava Ivanova', 62463, 'stanislgi1@uni-sofia.bg', 'Sofia, Bulgaria', 2023, 'Software Engineering', 3),
+(4, 'arhalachev', '$2y$10$uaDBQbImO2I0OyPZ8IlUwuM0FUE5inxsSIkjF7Gf0ki', 'Asibe Halacheva', 62497, 'arhalachev@uni-sofia.bg', 'Sofia, Bulgaria', 2023, 'Software Engineering', 3);
 
 --
 -- Indexes for dumped tables
