@@ -7,15 +7,7 @@ var defaultThreads = [
         content: "Събиране на випуск 2015",
         comments: [
             {
-                author: 
-                fetch("post.php", {
-                    method: "POST",
-                    headers: {
-                      "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify(data),
-                  })
-                ,
+                author: "Kiki",
                 date: Date.now(),
                 content: "Ще присъствам"
             },
@@ -46,7 +38,6 @@ var defaultThreads = [
         ]
     }
 ]
-encodeURI();
 
 var threads = defaultThreads
 if (localStorage && localStorage.getItem('threads')) {
