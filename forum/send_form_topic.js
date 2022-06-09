@@ -2,7 +2,7 @@ const btn = document.getElementById("btn");
 const responseMsg = document.getElementById("response");
 const fields = document.querySelectorAll("input");
 
-const topic = (event) => {
+const register = (event) => {
   event.preventDefault();
 
   responseMsg.innerHTML = "";
@@ -14,7 +14,7 @@ const topic = (event) => {
     data[field.name] = field.value;
   });
 
-  fetch("../php/add_topic.php", {
+  fetch("add_topic.php", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -31,7 +31,7 @@ const topic = (event) => {
         //responseMsg.innerHTML = "Успешна регистрация!";
         responseMsg.classList.remove("hidden");
         responseMsg.classList.add("success");
-        window.location.replace("../forum/forum.html");
+        window.location.replace("../index.html");
       }
     })
     .catch((err) => {
@@ -41,4 +41,4 @@ const topic = (event) => {
     });
 };
 
-btn.addEventListener("click", topic);
+btn.addEventListener("click", register);
