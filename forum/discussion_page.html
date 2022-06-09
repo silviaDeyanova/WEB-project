@@ -41,7 +41,7 @@
                         <p class="user">${comment.author}</p>
                         <p class="coment-ts">${new Date(comment.date).toLocaleString()}</p>
                     </section>
-                    <p class="comment-content">${comment.contend}</p>
+                    <p class="comment-content">${comment.content}</p>
                 </section>
                 `
                 comments.insertAdjacentHTML('beforeend',commenthtml);

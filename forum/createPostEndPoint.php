@@ -1,4 +1,4 @@
-<?php
+<?php/*
 
 require_once('../back-end/db/connection/connect.php');
 
@@ -14,7 +14,7 @@ try {
     $db = new DB();
     $connection = $db->getConnection();
 
-   /* $query = "SELECT * 
+    $query = "SELECT * 
                FROM users 
                WHERE username = :username";
 
@@ -25,7 +25,7 @@ try {
         http_response_code(400);
         exit(json_encode(["status" => "error", "message" => "Потребител с такова потребителско име вече съществува!"], JSON_UNESCAPED_UNICODE));
     }
-    */
+    
 } catch (PDOException $e) {
     http_response_code(500);
     return json_encode(["status" => "error", "message" => "Възникна грешка при регистрацията!"], JSON_UNESCAPED_UNICODE);
@@ -42,7 +42,7 @@ try {
         "topic_subject" => $topic_info,
         "topic_by" => $topic_by,
         
-    ])) /*{
+    ])) {
         
         $userId = $connection->lastInsertId();
         session_start();
@@ -55,7 +55,7 @@ try {
         http_response_code(201);
         exit(json_encode(["status" => "success", "message" => "Успешна регистрация!"], JSON_UNESCAPED_UNICODE));
         +
-    } */else {
+    } else {
         http_response_code(500);
         exit(json_encode(["status" => "error", "message" => "Възникна грешка при регистрацията!"], JSON_UNESCAPED_UNICODE));
     }
@@ -63,5 +63,39 @@ try {
     http_response_code(500);
     exit(json_encode(["status" => "error", "message" => "Възникна грешка при регистрацията!"], JSON_UNESCAPED_UNICODE));
 }
+
+-----------------------------------------------------------------------------------------------------------------------
+*/
+
+
+
+    session_start();
+
+    require_once(realpath(dirname(__FILE__) . 'postService.php'));
+
+    $postService = new PostService();
+
+    $phpInput = json_decode(file_get_contents('php://input'), true);
+    header('Content-Type: application/json');
+
+    $topic = $phpInput['topic'];
+    $topic_info = $phpInput['topic_info'];
+
+
+    $post = new Post(null, $topic, $topic_info);
+    try {
+        $postService->createPost($post);
+    } catch (Exception $e) {
+        echo json_encode([
+            'success' => false,
+            'message' => $e->getMessage(),
+        ]);
+        exit();
+    }
+
+    echo json_encode([
+        'success' => true,
+        'message' => "The post is created successfully.",
+    ]);
 
 ?>

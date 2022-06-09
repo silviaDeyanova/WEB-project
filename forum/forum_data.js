@@ -2,12 +2,20 @@ var defaultThreads = [
     {
         id: 1,
         title: "Тема 1",
-        author: "Admin",
+        author: "Stanislava",
         date: Date.now(),
         content: "Събиране на випуск 2015",
         comments: [
             {
-                author: "Виктория",
+                author: 
+                fetch("post.php", {
+                    method: "POST",
+                    headers: {
+                      "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(data),
+                  })
+                ,
                 date: Date.now(),
                 content: "Ще присъствам"
             },
@@ -21,7 +29,7 @@ var defaultThreads = [
     {
         id: 2,
         title: "Тема 2",
-        author: "Admin",
+        author: "Asibe",
         date: Date.now(),
         content: "Събиране на випуск 2016",
         comments: [
@@ -38,6 +46,7 @@ var defaultThreads = [
         ]
     }
 ]
+encodeURI();
 
 var threads = defaultThreads
 if (localStorage && localStorage.getItem('threads')) {
