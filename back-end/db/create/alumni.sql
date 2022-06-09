@@ -103,6 +103,13 @@ PRIMARY KEY (topic_id)
 
 -- topics to user
 
+INSERT INTO `topics` (`topic_id`, `topic_name`, `topic_subject`, `topic_date`, `topic_by`) VALUES
+(2, 'Тема 1 ', 'Описание', '2022-06-08 19:18:40', 3);
+
+INSERT INTO `topics` (`topic_name`, `topic_subject`,`topic_by`) VALUES
+('Тема 2 ', 'Описание ново',3);
+
+
 
 -- --------------------------------------------------------
 
