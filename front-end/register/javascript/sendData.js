@@ -31,7 +31,7 @@ const register = (event) => {
         responseMsg.innerHTML = "Успешна регистрация!";
         responseMsg.classList.remove("hidden");
         responseMsg.classList.add("success");
-        window.location.replace("../login/login.html");
+        window.location.href = "../login/login.html";
       }
     })
     .catch((err) => {

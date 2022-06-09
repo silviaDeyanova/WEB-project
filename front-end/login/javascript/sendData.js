@@ -37,7 +37,7 @@ const login = (event) => {
         responseMsg.innerHTML = "Успешно влязохте!";
         responseMsg.classList.remove("hidden");
         responseMsg.classList.add("success");
-        window.location.href = "../../forum.html";
+        window.location.href = "../profile/profile.html";
       }
     })
     .catch((err) => {
