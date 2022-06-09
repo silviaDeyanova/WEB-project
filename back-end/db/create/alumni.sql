@@ -44,7 +44,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `username`, `password`, `full_name`, `fn`, `email`) VALUES
 (2, 'sjdejanova', '$2y$10$kfa3dpzmQACfmNdtHS4OUOKNssNZbIRHyMr4K7kpy/Y', 'Silvia Deyanova', 62123, 'sjdejanova@uni-sofia.bg'),
-(3, 'stanislgi1', '$2y$10$g0cNI/o3HbVmbwZkLXuuKuqbvJNr4/b3TWIU6vXTzSe', 'Stanislava Ivanova', 62463, 'stanislgi1@uni-sofia.bg');
+(3, 'stanislgi1', '$2y$10$g0cNI/o3HbVmbwZkLXuuKuqbvJNr4/b3TWIU6vXTzSe', 'Stanislava Ivanova', 62463, 'stanislgi1@uni-sofia.bg'),
+(4, 'arhalachev', '$2y$10$uaDBQbImO2I0OyPZ8IlUwuM0FUE5inxsSIkjF7Gf0ki', 'Asibe Halacheva', 62497, 'arhalachev@uni-sofia.bg');
 
 --
 -- Indexes for dumped tables
