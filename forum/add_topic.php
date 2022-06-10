@@ -1,4 +1,4 @@
-<?php/*
+<?php
 
 require_once('../back-end/db/connection/connect.php');
 
@@ -7,10 +7,10 @@ $data = json_decode($params, true);
 
 $topic = $data["topic"]; // get input topic
 $topic_info = $data["topic_info"]; // get topic info
-$topic_by = "3";
+$topic_by = 3;
 
 
-try {
+/*try {
     $db = new DB();
     $connection = $db->getConnection();
 
@@ -29,7 +29,7 @@ try {
 } catch (PDOException $e) {
     http_response_code(500);
     return json_encode(["status" => "error", "message" => "Възникна грешка при регистрацията!"], JSON_UNESCAPED_UNICODE);
-}
+}*/
 
 try {
     $insert = "INSERT INTO topics (topic_name, topic_subject,topic_by)
@@ -44,7 +44,7 @@ try {
         
     ])) {
         
-        $userId = $connection->lastInsertId();
+       /* $userId = $connection->lastInsertId();
         session_start();
         $user = ["id" => $userId, "username" => $username, "password" => $hashedPassword, "full_name" => $fullName, "fn" => $fn, "email" => $email];
         $_SESSION["user"] = $user;
@@ -54,7 +54,7 @@ try {
 
         http_response_code(201);
         exit(json_encode(["status" => "success", "message" => "Успешна регистрация!"], JSON_UNESCAPED_UNICODE));
-        +
+        +*/
     } else {
         http_response_code(500);
         exit(json_encode(["status" => "error", "message" => "Възникна грешка при регистрацията!"], JSON_UNESCAPED_UNICODE));
@@ -64,11 +64,11 @@ try {
     exit(json_encode(["status" => "error", "message" => "Възникна грешка при регистрацията!"], JSON_UNESCAPED_UNICODE));
 }
 
------------------------------------------------------------------------------------------------------------------------
-*/
 
 
 
+
+/*
     session_start();
 
     require_once(realpath(dirname(__FILE__) . 'postService.php'));
@@ -97,5 +97,5 @@ try {
         'success' => true,
         'message' => "The post is created successfully.",
     ]);
-
+*/
 ?>
