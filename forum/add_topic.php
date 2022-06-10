@@ -1,19 +1,19 @@
 <?php
 
-require_once('../back-end/db/connection/connect.php');
+/*require_once('../back-end/db/connection/connect.php');
 
 $params = file_get_contents('php://input');
 $data = json_decode($params, true);
 
-$topic = $data["topic"]; // get input topic
+/*$topic = $data["topic"]; // get input topic
 $topic_info = $data["topic_info"]; // get topic info
 $topic_by = 3;
 
 
-/*try {
+try {
     $db = new DB();
     $connection = $db->getConnection();
-
+    
     $query = "SELECT * 
                FROM users 
                WHERE username = :username";
@@ -29,11 +29,22 @@ $topic_by = 3;
 } catch (PDOException $e) {
     http_response_code(500);
     return json_encode(["status" => "error", "message" => "Възникна грешка при регистрацията!"], JSON_UNESCAPED_UNICODE);
-}*/
+}
 
 try {
     $insert = "INSERT INTO topics (topic_name, topic_subject,topic_by)
     VALUES (:topic, :topic_info, :topic_by)";
+
+    $result = mysql_query($insert);
+    if(!$result)
+    {
+        //something went wrong, display the error
+        echo 'Error' . mysql_error();
+    }
+    else
+    {
+        echo 'New category successfully added.';
+    }
 
     $stmt = $connection->prepare($insert);
 
@@ -44,8 +55,9 @@ try {
         
     ])) {
         
-       /* $userId = $connection->lastInsertId();
+        $userId = $connection->lastInsertId();
         session_start();
+        
         $user = ["id" => $userId, "username" => $username, "password" => $hashedPassword, "full_name" => $fullName, "fn" => $fn, "email" => $email];
         $_SESSION["user"] = $user;
 
@@ -54,7 +66,7 @@ try {
 
         http_response_code(201);
         exit(json_encode(["status" => "success", "message" => "Успешна регистрация!"], JSON_UNESCAPED_UNICODE));
-        +*/
+        
     } else {
         http_response_code(500);
         exit(json_encode(["status" => "error", "message" => "Възникна грешка при регистрацията!"], JSON_UNESCAPED_UNICODE));
@@ -64,38 +76,74 @@ try {
     exit(json_encode(["status" => "error", "message" => "Възникна грешка при регистрацията!"], JSON_UNESCAPED_UNICODE));
 }
 
+*/
 
 
 
-
-/*
-    session_start();
-
-    require_once(realpath(dirname(__FILE__) . 'postService.php'));
-
-    $postService = new PostService();
-
-    $phpInput = json_decode(file_get_contents('php://input'), true);
-    header('Content-Type: application/json');
-
-    $topic = $phpInput['topic'];
-    $topic_info = $phpInput['topic_info'];
-
-
-    $post = new Post(null, $topic, $topic_info);
-    try {
-        $postService->createPost($post);
-    } catch (Exception $e) {
-        echo json_encode([
-            'success' => false,
-            'message' => $e->getMessage(),
-        ]);
-        exit();
+/*function isUserDataValid($userData) {
+    if (!isset($userData["topic"]) || !isset($userData["topic_info"])) {
+        return ["isValid" => false, "message" => "Некоректни данни!"];
     }
 
-    echo json_encode([
-        'success' => true,
-        'message' => "The post is created successfully.",
-    ]);
+    //$regex = "/^[a-z0-9_]+@[a-z]+\.[a-z]+$/";
+
+    if (!preg_match($regex, $userData["email"])) {
+        return ["isValid" => false, "message" => "Невалиден имейл!"];
+    }
+
+    return ["isValid" => true, "message" => "Данните са валидни!"];
+}
 */
+function getStudentsRoleId(PDO $connection) {
+    $userId = $connection->lastInsertId();
+    //$sql = "SELECT id FROM users WHERE username = :username" ";
+    $stmt = $connection->query($userId);
+    $id = $stmt->fetch(PDO::FETCH_ASSOC)["id"];
+    return $id;
+}
+
+
+
+require_once('../back-end/db/connection/connect.php');
+$userData = json_decode(file_get_contents("php://input"), true);
+
+if ($userData) {
+
+    /*$valid = isUserDataValid($userData);
+
+    if (!$valid["isValid"]) {
+        http_response_code(400);
+        exit(json_encode(["status" => "ERROR", "message" => $valid["message"]]));
+    }
+
+    $userData["password"] = password_hash($userData["password"], PASSWORD_DEFAULT);*/
+
+    try {
+
+        $db = new DB();
+        $connection = $db->getConnection();
+        $userId = getStudentsRoleId($connection);
+
+        //$userId = 3;
+       
+        $userData += ["topic_by" => $userId];
+
+        $sql = "INSERT INTO users (topic_name, topic_subject,topic_by) 
+                VALUES (:topic, :topic_info, :topic_by)";
+
+        $stmt = $connection->prepare($sql);
+        $stmt->execute($userData);
+
+        echo json_encode(["status" => "SUCCES", "message" => "Регистрацията е успешна"]);
+
+    } catch (PDOException $e) {
+        http_response_code(500);
+        echo json_encode(["status" => "ERROR", "message" => "Грешка при регистрация!"]);
+    }
+
+
+} else {
+    http_response_code(400);
+    echo json_encode(["status" => "ERROR", "message" => "Некоректни данни!"]); 
+}
 ?>

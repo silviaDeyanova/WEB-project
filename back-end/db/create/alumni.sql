@@ -114,6 +114,8 @@ INSERT INTO `topics` (`topic_id`, `topic_name`, `topic_subject`, `topic_date`, `
 INSERT INTO `topics` (`topic_name`, `topic_subject`,`topic_by`) VALUES
 ('Тема 2 ', 'Описание ново',3);
 
+INSERT INTO `topics` (`topic_name`, `topic_subject`,`topic_by`) VALUES
+('Тема 3 ', 'Проба', 3);
 
 
 -- --------------------------------------------------------

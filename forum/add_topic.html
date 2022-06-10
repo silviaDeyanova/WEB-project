@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="../css/form_style.css" rel="stylesheet"> 
-    <script defer src="send_form_topic.js"></script>
     <title>Добави тема</title>
   </head>
   <body>
@@ -15,21 +14,25 @@
           </h1>
     </section>
     <section>
-        <form id="add_topic" method="post"> 
+        <form id="add_topic" method="post" action="topic_page.php"> 
             <fieldset>
                 <section>
-                     <input type="text" id="topic" name="topic" minlength="1" placeholder="Заглавие на тема" title="Задължително поле" required>
+                     <input type="text" id="topic_name" name="topic_name" minlength="1" placeholder="Заглавие на тема" title="Задължително поле" required>
                 </section>
                 <section>
-                    <input type="text" id="topic_info" name="topic_info" minlength="1" placeholder="Допълнително описание" title="Задължително поле" required>
+                    <input type="text" id="topic_subject" name="topic_subject" minlength="1" placeholder="Допълнително описание" title="Задължително поле" required>
                </section>
+               <section>
+                <input type="text" id="topic_by" name="topic_by" minlength="1" placeholder="Допълнително описание" title="Задължително поле" required>
+             </section>
                <section>
                     <button id="btn" type="submit">Изпрати</button>
                 </section>
-                <div class="hidden" id="response"></div>
+                <div id="response"></div>
+                <div id="success-msg"></div>
             </fieldset>
         </form>
     </section>
-
 </body>
 </html>
+
