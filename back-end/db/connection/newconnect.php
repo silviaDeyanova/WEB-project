@@ -20,14 +20,14 @@ function initDB(&$hasErrors) {
 function registerUser($topic_name, $topic_subject, $topic_by) {
     global $dbConnection;
 
-    $stmt = $dbConnection->prepare("INSERT INTO topics (topic_name, topic_subjec, topic_by) VALUES (:topic_name, :topic_subject, :topic_by)");
+    $stmt = $dbConnection->prepare("INSERT INTO topics (topic_name, topic_subjec, topic_by) VALUES (?,?,?)");
     try {
         $stmt->execute([$topic_name, $topic_subject, $topic_by]);
     }
     catch(Exception $e) {
         if($stmt->errorInfo()[1] == 1062)
         {
-            throw new Exception('Грешка се почви при регистрация');
+            throw new Exception('Грешка се появи при регистрация');
         }
     }
     

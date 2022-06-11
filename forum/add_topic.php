@@ -1,11 +1,11 @@
 <?php
 
-/*require_once('../back-end/db/connection/connect.php');
+require_once('../back-end/db/connection/connect.php');
 
 $params = file_get_contents('php://input');
 $data = json_decode($params, true);
 
-/*$topic = $data["topic"]; // get input topic
+$topic = $data["topic"]; // get input topic
 $topic_info = $data["topic_info"]; // get topic info
 $topic_by = 3;
 
@@ -76,7 +76,7 @@ try {
     exit(json_encode(["status" => "error", "message" => "Възникна грешка при регистрацията!"], JSON_UNESCAPED_UNICODE));
 }
 
-*/
+
 
 
 
@@ -93,7 +93,7 @@ try {
 
     return ["isValid" => true, "message" => "Данните са валидни!"];
 }
-*/
+
 function getStudentsRoleId(PDO $connection) {
     $userId = $connection->lastInsertId();
     //$sql = "SELECT id FROM users WHERE username = :username" ";
@@ -109,14 +109,14 @@ $userData = json_decode(file_get_contents("php://input"), true);
 
 if ($userData) {
 
-    /*$valid = isUserDataValid($userData);
+    $valid = isUserDataValid($userData);
 
     if (!$valid["isValid"]) {
         http_response_code(400);
         exit(json_encode(["status" => "ERROR", "message" => $valid["message"]]));
     }
 
-    $userData["password"] = password_hash($userData["password"], PASSWORD_DEFAULT);*/
+    $userData["password"] = password_hash($userData["password"], PASSWORD_DEFAULT);
 
     try {
 
@@ -146,4 +146,6 @@ if ($userData) {
     http_response_code(400);
     echo json_encode(["status" => "ERROR", "message" => "Некоректни данни!"]); 
 }
+?>
+*/
 ?>

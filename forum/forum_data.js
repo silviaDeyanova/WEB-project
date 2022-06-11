@@ -46,5 +46,5 @@ if (localStorage && localStorage.getItem('threads')) {
     threads = defaultThreads;
     localStorage.setItem('threads', JSON.stringify(defaultThreads));
 }
-var nameAutor = document.getElementById('username');
-//window.localStorage.clear();
+//var nameAutor = document.getElementById('username');
+window.localStorage.clear();

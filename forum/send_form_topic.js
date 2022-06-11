@@ -1,4 +1,4 @@
-/*const btn = document.getElementById("btn");
+const btn = document.getElementById("btn");
 const responseMsg = document.getElementById("response");
 const fields = document.querySelectorAll("input");
 
@@ -42,7 +42,7 @@ const register = (event) => {
 };
 
 btn.addEventListener("click", register);
-*/
+
 
 
 
@@ -59,7 +59,7 @@ function arePasswordsEqual(password, rePassword) {
 
     return true;
 }
-*/
+
 function add_topic(userData) {
     fetch('add_topic.php', {
         method: 'POST',
@@ -68,7 +68,7 @@ function add_topic(userData) {
         },
         body: JSON.stringify(userData)
     })
-    /*.then(res => {
+    .then(res => {
         if (res.ok) {
             return res.json();
         } else {
@@ -76,7 +76,7 @@ function add_topic(userData) {
                 throw new Error(err.message);
             });
         }
-    })*/
+    })
     .then(data => {
         const successMsgEL = document.getElementById('response');
         successMsgEL.innerText = `${data.message}. Към `;
@@ -106,11 +106,11 @@ function add_topic(userData) {
         const topic_info = document.getElementById('topic_info').value;
         //const topic_by = 3;
 
-        /*if (arePasswordsEqual(password, rePassword)) {
+        if (arePasswordsEqual(password, rePassword)) {
             registration({email, password});
-        }*/
+        }
         add_topic({topic, topic_info});
         event.preventDefault();
     });
 
-})();
+})();*/

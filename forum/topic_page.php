@@ -1,20 +1,22 @@
 <?php
-require_once('../back-end/db/connection/handler.php');
+require_once '../back-end/db/connection/handler.php' ;
     if($_POST)
     {
         $topic_name = $_POST['topic_name'];
         $topic_subject = $_POST['topic_subject'];
         $topic_by=$_POST['topic_by'];
 
-        //$errors = validate_registration_form($fn, $nickname, $email, $password, $password_again);
-        //if(!$errors)
-        //{
+        create($topic_name, $topic_subject, $topic_by);
+        
+        /*$errors = validate_registration_form($fn, $nickname, $email, $password, $password_again);
+        if(!$errors)
+        {
             create($topic_name, $topic_subject, $topic_by);
-        //}
-        //foreach($errors as $e)
-        //{
-        //    echo $e . "<br>";
-        //}
+        }
+        foreach($errors as $e)
+        {
+            echo $e . "<br>";
+        }*/
 
     }
 
