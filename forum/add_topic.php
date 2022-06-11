@@ -5,8 +5,8 @@ require_once('../back-end/db/connection/connect.php');
 $params = file_get_contents('php://input');
 $data = json_decode($params, true);
 
-$topic = $data["topic"]; // get input topic
-$topic_info = $data["topic_info"]; // get topic info
+$topic_name = $data["topic_name"]; // get input topic
+$topic_subject = $data["topic_subject"]; // get topic info
 $topic_by = 3;
 
 
@@ -14,7 +14,7 @@ try {
     $db = new DB();
     $connection = $db->getConnection();
     
-    $query = "SELECT * 
+    /*$query = "SELECT * 
                FROM users 
                WHERE username = :username";
 
@@ -24,7 +24,7 @@ try {
     if ($statement->rowCount() != 0) {
         http_response_code(400);
         exit(json_encode(["status" => "error", "message" => "Потребител с такова потребителско име вече съществува!"], JSON_UNESCAPED_UNICODE));
-    }
+    }*/
     
 } catch (PDOException $e) {
     http_response_code(500);
@@ -33,31 +33,18 @@ try {
 
 try {
     $insert = "INSERT INTO topics (topic_name, topic_subject,topic_by)
-    VALUES (:topic, :topic_info, :topic_by)";
+    VALUES (:topic_name, :topic_subject, :topic_by)";
 
-    $result = mysql_query($insert);
-    if(!$result)
-    {
-        //something went wrong, display the error
-        echo 'Error' . mysql_error();
-    }
-    else
-    {
-        echo 'New category successfully added.';
-    }
+    $statement = $connection->prepare($insert);
 
-    $stmt = $connection->prepare($insert);
-
-    if ($stmt->execute([
-        "topic_name"=>$topic;
-        "topic_subject" => $topic_info,
+    if ($statement->execute([
+        "topic_name" => $topic_name,
+        "topic_subject" => $topic_subject,
         "topic_by" => $topic_by,
-        
     ])) {
-        
-        $userId = $connection->lastInsertId();
+
+       /* $userId = $connection->lastInsertId();
         session_start();
-        
         $user = ["id" => $userId, "username" => $username, "password" => $hashedPassword, "full_name" => $fullName, "fn" => $fn, "email" => $email];
         $_SESSION["user"] = $user;
 
@@ -65,8 +52,7 @@ try {
         setcookie("password", $password, time() + 60 * 60 * 2, "/");
 
         http_response_code(201);
-        exit(json_encode(["status" => "success", "message" => "Успешна регистрация!"], JSON_UNESCAPED_UNICODE));
-        
+        exit(json_encode(["status" => "success", "message" => "Успешна регистрация!"], JSON_UNESCAPED_UNICODE));*/
     } else {
         http_response_code(500);
         exit(json_encode(["status" => "error", "message" => "Възникна грешка при регистрацията!"], JSON_UNESCAPED_UNICODE));
