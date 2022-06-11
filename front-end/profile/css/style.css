@@ -38,6 +38,11 @@ main {
   margin-top: 41%;
 }
 
+#logout {
+	margin-top: 100%;
+	cursor: pointer;
+}
+
 .rightTab {
   display: flex;
   flex-direction: column;
