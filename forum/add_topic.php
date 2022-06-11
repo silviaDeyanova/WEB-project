@@ -7,7 +7,12 @@ $data = json_decode($params, true);
 
 $topic_name = $data["topic_name"]; // get input topic
 $topic_subject = $data["topic_subject"]; // get topic info
-$topic_by = 3;
+/*$topic_date = date("Y-m-d H:i:s"); // get topic info
+if (isset($_SESSION['id'])){
+    exit(json_encode(["status" => "error", "message" => "Възникна грешка при id!"], JSON_UNESCAPED_UNICODE));
+    $topic_by =  $_SESSION['id'];;
+}
+
 
 
 try {
@@ -63,75 +68,4 @@ try {
 }
 
 
-
-
-
-/*function isUserDataValid($userData) {
-    if (!isset($userData["topic"]) || !isset($userData["topic_info"])) {
-        return ["isValid" => false, "message" => "Некоректни данни!"];
-    }
-
-    //$regex = "/^[a-z0-9_]+@[a-z]+\.[a-z]+$/";
-
-    if (!preg_match($regex, $userData["email"])) {
-        return ["isValid" => false, "message" => "Невалиден имейл!"];
-    }
-
-    return ["isValid" => true, "message" => "Данните са валидни!"];
-}
-
-function getStudentsRoleId(PDO $connection) {
-    $userId = $connection->lastInsertId();
-    //$sql = "SELECT id FROM users WHERE username = :username" ";
-    $stmt = $connection->query($userId);
-    $id = $stmt->fetch(PDO::FETCH_ASSOC)["id"];
-    return $id;
-}
-
-
-
-require_once('../back-end/db/connection/connect.php');
-$userData = json_decode(file_get_contents("php://input"), true);
-
-if ($userData) {
-
-    $valid = isUserDataValid($userData);
-
-    if (!$valid["isValid"]) {
-        http_response_code(400);
-        exit(json_encode(["status" => "ERROR", "message" => $valid["message"]]));
-    }
-
-    $userData["password"] = password_hash($userData["password"], PASSWORD_DEFAULT);
-
-    try {
-
-        $db = new DB();
-        $connection = $db->getConnection();
-        $userId = getStudentsRoleId($connection);
-
-        //$userId = 3;
-       
-        $userData += ["topic_by" => $userId];
-
-        $sql = "INSERT INTO users (topic_name, topic_subject,topic_by) 
-                VALUES (:topic, :topic_info, :topic_by)";
-
-        $stmt = $connection->prepare($sql);
-        $stmt->execute($userData);
-
-        echo json_encode(["status" => "SUCCES", "message" => "Регистрацията е успешна"]);
-
-    } catch (PDOException $e) {
-        http_response_code(500);
-        echo json_encode(["status" => "ERROR", "message" => "Грешка при регистрация!"]);
-    }
-
-
-} else {
-    http_response_code(400);
-    echo json_encode(["status" => "ERROR", "message" => "Некоректни данни!"]); 
-}
-?>
-*/
 ?>

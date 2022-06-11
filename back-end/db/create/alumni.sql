@@ -74,7 +74,6 @@ CREATE TABLE `topics` (
 `topic_id` INT(8) NOT NULL AUTO_INCREMENT,
 `topic_name` VARCHAR(255) NOT NULL,
 `topic_subject` VARCHAR(255) NOT NULL,
-`topic_date` DATETIME NOT NULL,
 `topic_by` INT(8) NOT NULL,
 FOREIGN KEY (topic_by) REFERENCES users(id),
 PRIMARY KEY (topic_id)
@@ -86,14 +85,15 @@ PRIMARY KEY (topic_id)
 
 -- topics to user
 
-INSERT INTO `topics` (`topic_id`, `topic_name`, `topic_subject`, `topic_date`, `topic_by`) VALUES
-(2, 'Тема 1 ', 'Описание', '2022-06-08 19:18:40', 3);
+INSERT INTO `topics` (`topic_id`, `topic_name`, `topic_subject`, `topic_by`) VALUES
+(2, 'Тема 1 ', 'Описание', 3);
 
 INSERT INTO `topics` (`topic_name`, `topic_subject`, `topic_by`) VALUES
 ('Тема 2 ', 'Описание ново', 3);
 
 INSERT INTO `topics` (`topic_name`, `topic_subject`,`topic_by`) VALUES
 ('Тема 3 ', 'Проба', 3);
+
 
 
 -- --------------------------------------------------------
