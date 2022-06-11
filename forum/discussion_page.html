@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../css/discussion_page_style.css" rel="stylesheet"> 
+    <title>Страница за дискусии</title>
+  </head>
+  <body>
+    <section class="top-bar">
+        <h1>Страница за дискусии</h1>
+    </section>
+    <article class="main">
+        <section class="header"></section>
+        <textarea></textarea>
+        <button>Добави коментар</button>
+        <section class="comments"></section>
+    </article>
+    <script src="forum_data.js"></script>
+    <script>
+        //console.log(threads);
+        let id=window.location.search.slice(1);
+        let thread=threads.find(t=>t.id == id);
+        //console.log(thread);
+        let header=document.querySelector('.header');
+        let headerhtml=`
+            <h4 class="title">${thread.title} </h4>
+            <p>${thread.content} </p>
+            <section class="bottom">
+                <p class="time">${new Date(thread.date).toLocaleString()}</p>
+                <p class="coment-count">${thread.comments.length} коментара</p>
+            </section>
+        `
+        header.insertAdjacentHTML('beforeend',headerhtml);
+
+        
+        function addComment(comment){
+                let commenthtml=`
+                <section class="comment">
+                    <section class="top-comment">
+                        <p class="user">${comment.author}</p>
+                        <p class="coment-ts">${new Date(comment.date).toLocaleString()}</p>
+                    </section>
+                    <p class="comment-content">${comment.content}</p>
+                </section>
+                `
+                comments.insertAdjacentHTML('beforeend',commenthtml);
+        }
+
+        var comments=document.querySelector('.comments');
+        for(let comment of thread.comments){
+            addComment(comment);
+        }
+
+        let btn =document.querySelector('button');
+        btn.addEventListener('click',function(){
+            let txt=document.querySelector('textarea');
+
+            var comment={
+                content:txt.value,
+                date:Date.now(),
+                author:'Student'
+                //author:auth,
+            }
+            addComment(comment);
+            txt.value='';
+            thread.comments.push(comment);
+            localStorage.setItem('threads',JSON.stringify(threads));
+        });
+    </script>
+</body>
+</html>

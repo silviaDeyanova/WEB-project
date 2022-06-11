@@ -1,8 +1,9 @@
 const btn = document.getElementById("btn");
+const login = document.getElementById("login");
 const responseMsg = document.getElementById("response");
 const fields = document.querySelectorAll("input");
 
-const register = (event) => {
+const add_topic = (event) => {
   event.preventDefault();
 
   responseMsg.innerHTML = "";
@@ -41,5 +42,6 @@ const register = (event) => {
     });
 };
 
-btn.addEventListener("click", register);
+btn.addEventListener("click", add_topic);
+login.addEventListener("click", add_topic);
 

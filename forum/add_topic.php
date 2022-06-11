@@ -7,13 +7,15 @@ $data = json_decode($params, true);
 
 $topic_name = $data["topic_name"]; // get input topic
 $topic_subject = $data["topic_subject"]; // get topic info
-/*$topic_date = date("Y-m-d H:i:s"); // get topic info
-if (isset($_SESSION['id'])){
-    exit(json_encode(["status" => "error", "message" => "Възникна грешка при id!"], JSON_UNESCAPED_UNICODE));
-    $topic_by =  $_SESSION['id'];;
-}
+$topic_by=3;
 
-
+/*$username = "arhalachev";
+//$topic_date = date("Y-m-d H:i:s"); // get topic info
+//$topic_by=2;
+$topic_by = "SELECT id 
+               FROM users 
+               WHERE username = :username";
+*/
 
 try {
     $db = new DB();
