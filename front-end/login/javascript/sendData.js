@@ -16,35 +16,45 @@ const login = (event) => {
   responseMsg.classList.remove("success");
 
   let data = {};
+  let isEmpty = false;
   fields.forEach((field) => {
     data[field.name] = field.value;
+    if (field.value === "") {
+      isEmpty = true;
+    }
   });
 
-  fetch("../../back-end/api/login/login.php", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(data),
-  })
-    .then((data) => {
-      return data;
+  if (!isEmpty) {
+    fetch("../../back-end/api/login/login.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
     })
-    .then((data) => {
-      if (data["status"] === "error") {
-        throw new Error(data["message"]);
-      } else {
-        responseMsg.innerHTML = "Успешно влязохте!";
+      .then((data) => {
+        return data;
+      })
+      .then((data) => {
+        if (data["status"] === "error") {
+          throw new Error(data["message"]);
+        } else {
+          responseMsg.innerHTML = "Успешно влязохте!";
+          responseMsg.classList.remove("hidden");
+          responseMsg.classList.add("success");
+          window.location.href = "../profile/profile.html";
+        }
+      })
+      .catch((err) => {
+        responseMsg.innerHTML = err;
         responseMsg.classList.remove("hidden");
-        responseMsg.classList.add("success");
-        window.location.href = "../profile/profile.html";
-      }
-    })
-    .catch((err) => {
-      responseMsg.innerHTML = err;
-      responseMsg.classList.remove("hidden");
-      responseMsg.classList.add("error");
-    });
+        responseMsg.classList.add("error");
+      });
+  } else {
+    responseMsg.innerHTML = "Всички полета трябва да бъдат попълнени!";
+    responseMsg.classList.remove("hidden");
+    responseMsg.classList.add("error");
+  }
 };
 
 registrationBtn.addEventListener("click", toRegister);

@@ -15,32 +15,34 @@
     <section id="account">
       <section id="leftTab">  
         <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png" alt="Profile picture" width="150">
-        <h3></h3>
+        <h3 id="full_name"></h3>
       </section>
       <section id="infoTab" class="rightTab">
         <h2>Моят профил</h2>
         <article id="info">
+	<form id="form" method="POST">
           <h4>Потребителско име</h4>
-	  <input type="text" id="username" name="username">
+	  <input type="text" id="username" name="username" value="">
 		
 	  <h4>Парола</h4>
-	  <input type="password" id="password" name="password">
+	  <input type="password" id="password" name="password" value="">
 					
 	  <h4>Имейл</h4>
-	  <input type="email" id="email" name="email">
+	  <input type="email" id="email" name="email" value="">
 			
-	  <h4>Адрес</h4>
-	  <input type="text" id="address" name="address">
+	  <h4>Факултетен номер</h4>
+	  <input type="text" id="fn" name="fn" value="" readonly>
 					
 	  <h4>Година на завършване</h4>
-	  <input type="text" id="graduation" name="graduation" readonly>
+	  <input type="text" id="graduation" name="graduation" value="" readonly>
 					
 	  <h4>Специалност</h4>
-	  <input type="text" id="major" name="major" readonly>
+	  <input type="text" id="major" name="major" value="" readonly>
 		
 	  <h4>Група</h4>
-	  <input type="text" id="group" name="group" readonly>
+	  <input type="text" id="groupN" name="groupN" value="" readonly>
         </article>
+	</form>
         <button type="submit" id="button">Запази промените</button>
       </section>
     </section>
