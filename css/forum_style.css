@@ -80,10 +80,10 @@ p{
 
 ol li{
     background-color: rgb(255, 255, 255);
-    margin: 8px;
+    margin: 25px 0;
     padding: 8px;
     list-style-type: none;
-
+	box-shadow: 2px 4px 10px #0000006e;
 }
 
 

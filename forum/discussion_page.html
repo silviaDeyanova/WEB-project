@@ -8,9 +8,11 @@
     <title>Страница за дискусии</title>
   </head>
   <body>
+    <header id="head">
     <section class="top-bar">
         <h1>Страница за дискусии</h1>
     </section>
+    </header>
     <article class="main">
         <section class="header"></section>
         <textarea></textarea>
@@ -19,14 +21,12 @@
     </article>
     <script src="forum_data.js"></script>
     <script>
-        //console.log(threads);
         let id=window.location.search.slice(1);
         let thread=threads.find(t=>t.id == id);
-        //console.log(thread);
         let header=document.querySelector('.header');
         let headerhtml=`
             <h4 class="title">${thread.title} </h4>
-            <p>${thread.content} </p>
+            <p>${thread.content}</p>
             <section class="bottom">
                 <p class="time">${new Date(thread.date).toLocaleString()}</p>
                 <p class="coment-count">${thread.comments.length} коментара</p>
@@ -56,12 +56,10 @@
         let btn =document.querySelector('button');
         btn.addEventListener('click',function(){
             let txt=document.querySelector('textarea');
-
             var comment={
                 content:txt.value,
                 date:Date.now(),
                 author:'Student'
-                //author:auth,
             }
             addComment(comment);
             txt.value='';

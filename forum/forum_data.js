@@ -1,39 +1,39 @@
 var defaultThreads = [
     {
         id: 1,
-        title: "Тема 1",
+        title: "Събиране на випуск 2015",
         author: "Stanislava",
         date: Date.now(),
-        content: "Събиране на випуск 2015",
+        content: "Срещата ще се състои на 25.07.2022г. В ресторант Панорама от 20:00ч.",
         comments: [
             {
-                author: "Kiki",
+                author: "Моника",
                 date: Date.now(),
-                content: "Ще присъствам"
+                content: "Ще присъствам."
             },
             {
                 author: "Тодор",
                 date: Date.now(),
-                content: "Там съм"
+                content: "Задължително ще дойда."
             }
         ]
     },
     {
         id: 2,
-        title: "Тема 2",
+        title: "Почистване на кв. Студенски град",
         author: "Asibe",
         date: Date.now(),
-        content: "Събиране на випуск 2016",
+        content: "Почистване на кв. Студенски град на 20.07.2022г.",
         comments: [
             {
                 author: "Никола",
                 date: Date.now(),
-                content: "Няма да мога да дойда."
+                content: "Там сме."
             },
             {
                 author: "Ана",
                 date: Date.now(),
-                content: "Ще присъствам"
+                content: "Къде да видим подробности?"
             }
         ]
     }
@@ -46,5 +46,5 @@ if (localStorage && localStorage.getItem('threads')) {
     threads = defaultThreads;
     localStorage.setItem('threads', JSON.stringify(defaultThreads));
 }
-//var nameAutor = document.getElementById('username');
-//window.localStorage.clear();
+
+window.localStorage.clear();
