@@ -25,6 +25,6 @@ if (empty($phpInput['username']) || empty($phpInput['password'])) {
     $userObject = ["username" => $username, "password" => $password];
     $response = createUserSession($userObject);
     http_response_code($response["code"]);
-    // echo json_encode(["status" => $response["status"], "message" => $response["message"]], JSON_UNESCAPED_UNICODE);
-    echo json_encode(["status" => $phpInput['password'], "message" => $response["message"]], JSON_UNESCAPED_UNICODE);
+    echo json_encode(["status" => $response["status"], "message" => $response["message"]], JSON_UNESCAPED_UNICODE);
+    // echo json_encode(["status" => $phpInput['password'], "message" => $response["message"]], JSON_UNESCAPED_UNICODE);
 }
