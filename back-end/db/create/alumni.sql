@@ -32,7 +32,7 @@ USE `alumni`;
 CREATE TABLE `users` (
   `id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
   `username` varchar(30) NOT NULL UNIQUE,
-  `password` varchar(50) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `full_name` varchar(50) NOT NULL,
   `fn` int(11) NOT NULL UNIQUE,
   `email` varchar(50) NOT NULL UNIQUE,
@@ -46,9 +46,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `full_name`, `fn`, `email`, `graduation`, `major`, `groupN`) VALUES
-(NULL, 'sjdejanova', '$2y$10$kfa3dpzmQACfmNdtHS4OUOKNssNZbIRHyMr4K7kpy/Y', 'Silvia Deyanova', 62123, 'sjdejanova@uni-sofia.bg', 2023, 'Software Engineering', 3),
-(NULL, 'arhalachev', '$2y$10$uaDBQbImO2I0OyPZ8IlUwuM0FUE5inxsSIkjF7Gf0ki', 'Asibe Halacheva', 62497, 'arhalachev@uni-sofia.bg', 2023, 'Software Engineering', 3),
-(NULL, 'stanislgi1', '$2y$10$hdwF3iagYm.x.4PSm3EByutPD442lYUue45x5HHBDHc', 'Stanislava Ivanova', 62463, 'stanislgi1@uni-sofia.bg', 2023, 'Software Engineering', 3);
+(3, 'arhalachev', '$2y$10$uaDBQbImO2I0OyPZ8IlUwuM0FUE5inxsSIkjF7Gf0ki', 'Asibe Halacheva', 62497, 'arhalachev@uni-sofia.bg', 2023, 'Software Engineering', 3);
 
 -- --------------------------------------------------------
 
