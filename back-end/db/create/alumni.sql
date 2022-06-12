@@ -47,8 +47,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `username`, `password`, `full_name`, `fn`, `email`, `graduation`, `major`, `groupN`) VALUES
 (NULL, 'sjdejanova', '$2y$10$kfa3dpzmQACfmNdtHS4OUOKNssNZbIRHyMr4K7kpy/Y', 'Silvia Deyanova', 62123, 'sjdejanova@uni-sofia.bg', 2023, 'Software Engineering', 3),
-(NULL, 'stanislgi1', '$2y$10$g0cNI/o3HbVmbwZkLXuuKuqbvJNr4/b3TWIU6vXTzSe', 'Stanislava Ivanova', 62463, 'stanislgi1@uni-sofia.bg', 2023, 'Software Engineering', 3),
-(NULL, 'arhalachev', '$2y$10$uaDBQbImO2I0OyPZ8IlUwuM0FUE5inxsSIkjF7Gf0ki', 'Asibe Halacheva', 62497, 'arhalachev@uni-sofia.bg', 2023, 'Software Engineering', 3);
+(NULL, 'arhalachev', '$2y$10$uaDBQbImO2I0OyPZ8IlUwuM0FUE5inxsSIkjF7Gf0ki', 'Asibe Halacheva', 62497, 'arhalachev@uni-sofia.bg', 2023, 'Software Engineering', 3),
+(NULL, 'stanislgi1', '$2y$10$hdwF3iagYm.x.4PSm3EByutPD442lYUue45x5HHBDHc', 'Stanislava Ivanova', 62463, 'stanislgi1@uni-sofia.bg', 2023, 'Software Engineering', 3);
 
 -- --------------------------------------------------------
 
@@ -86,13 +86,13 @@ PRIMARY KEY (topic_id)
 -- topics to user
 
 INSERT INTO `topics` (`topic_id`, `topic_name`, `topic_subject`, `topic_by`) VALUES
-(2, 'Тема 1 ', 'Описание', 3);
+(2, 'Тема 1 ', 'Описание', 2);
 
 INSERT INTO `topics` (`topic_name`, `topic_subject`, `topic_by`) VALUES
-('Тема 2 ', 'Описание ново', 3);
+('Тема 2 ', 'Описание ново', 2);
 
 INSERT INTO `topics` (`topic_name`, `topic_subject`,`topic_by`) VALUES
-('Тема 3 ', 'Проба', 3);
+('Тема 3 ', 'Проба', 2);
 
 
 
