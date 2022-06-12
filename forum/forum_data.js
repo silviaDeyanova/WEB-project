@@ -47,4 +47,6 @@ if (localStorage && localStorage.getItem('threads')) {
     localStorage.setItem('threads', JSON.stringify(defaultThreads));
 }
 
-window.localStorage.clear();
+
+
+//window.localStorage.clear();
