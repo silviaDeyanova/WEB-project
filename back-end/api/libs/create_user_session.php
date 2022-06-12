@@ -21,7 +21,7 @@ function createUserSession($user)
 
         // if (!password_verify(password_hash($user["password"], PASSWORD_DEFAULT), $user_from_db["password"])) {
         if (!password_verify($user["password"], $user_from_db["password"])) {
-            return ["status" => $user, "message" => "Грешна парола!", "code" => 400];
+            return ["status" => "error", "message" => "Грешна парола!", "code" => 400];
         }
     } catch (PDOException $e) {
         return ["status" => "error", "message" => "Възникна грешка при опита за връзка с базата данни!", "code" => 500];
