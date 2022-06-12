@@ -9,6 +9,17 @@
   </head>
   <body>
     <header id="header">
+        <section class="container">
+            <img src="../img/fmi-logo-bg.png" class="logo" alt="logo">
+            <nav class="top-nav">
+              <ul>
+                <li><a href="../index.html">Начало</a></li>
+                <li><a href="forum/forum.html">Форум</a></li>
+                <li><a href="#">Събития</a></li>
+                <li><a href="#">Общност</a></li>
+              </ul>
+            </nav>
+        </section>
     <section class="overlay">
           <h1>
               Форум
@@ -17,9 +28,13 @@
     </header>
     <article class="topic">
         <section class="add_topic"></section>
-        <input type="text" placeholder="Тема" class="my_topic" minlength="1" required>
-        <input type="text" placeholder="Описание" class="my_content" minlength="1" required>
-        <button>Добави тема</button>
+        <form>
+            
+                <input type="text" placeholder="Тема" class="my_topic" minlength="1" required>
+                <input type="text" placeholder="Описание" class="my_content" minlength="1" required>
+                <button>Добави тема</button>
+            
+        </form>
         <section class="topics"></section>
     </article>
     <article class="main">
@@ -56,7 +71,6 @@
             let my_topic=document.querySelector('.my_topic');
             let my_content=document.querySelector('.my_content');
             var top={
-                id:Math.floor(Math.random() * 100),  
                 title:my_topic.value,
                 content:my_content.value,
                 date:Date.now(),
@@ -68,7 +82,7 @@
             threads.push(top);
             localStorage.setItem('threads',JSON.stringify(threads));
         });
-        //window.localStorage.clear();
+        window.localStorage.clear();
     </script>
 </body>
 </html>
