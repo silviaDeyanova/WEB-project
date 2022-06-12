@@ -10,7 +10,7 @@ function createUserSession($user)
         $selectQuery = "SELECT password,full_name,email,fn,graduation,major,groupN FROM users WHERE username = :username";
         $statement = $connection->prepare($selectQuery);
         $statement->execute(["username" => $user["username"]]);
-        
+
         if ($statement->rowCount() == 0) {
             return ["status" => $user, "message" => "Не е открит потребител с това потребителско име!", "code" => 400];
         }
@@ -31,5 +31,3 @@ function createUserSession($user)
 
     return ["status" => "success", "message" => "Успешен вход в системата!", "code" => 200];
 }
-
-?>
