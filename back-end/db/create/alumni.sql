@@ -36,9 +36,9 @@ CREATE TABLE `users` (
   `full_name` varchar(50) NOT NULL,
   `fn` int(11) NOT NULL UNIQUE,
   `email` varchar(50) NOT NULL UNIQUE,
-  `graduation` year(4) DEFAULT 1970,
-  `major` varchar(50) NOT NULL,
-  `groupN` int(10) NOT NULL
+  `graduation` year(4),
+  `major` varchar(50),
+  `groupN` int(10)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -46,8 +46,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `full_name`, `fn`, `email`, `graduation`, `major`, `groupN`) VALUES
-(3, 'arhalachev', '$2y$10$uaDBQbImO2I0OyPZ8IlUwuM0FUE5inxsSIkjF7Gf0ki', 'Asibe Halacheva', 62497, 'arhalachev@uni-sofia.bg', 2023, 'Software Engineering', 3)
-(8, 'sjdejanova', '$2y$10$yXoONHqZ9lExslTyk1wFJ./4b2FpMkRzKy9XDPObWIgSxiEwWlg22', 'Silvia Deyanova', 62448, 'sjdejanova@uni-sofia.bg', 1970, '', 0);
+(1, 'sjdejanova', '$2y$10$yXoONHqZ9lExslTyk1wFJ./4b2FpMkRzKy9XDPObWIgSxiEwWlg22', 'Silvia Deyanova', 62448, 'sjdejanova@uni-sofia.bg', 2023, 'Software Engineering', 3),
+(2, 'stanislgi1', '$2y$10$foJL0YFlm0kJKjQVbVDl3O0ZT1nzfagpeYG4Qg0efhmaKeluVmEJW', 'Stanislava Ivanova', 62463, 'stanislgi1@uni-sofia.bg', 2023, 'Software Engineering', 3);
 
 -- --------------------------------------------------------
 
@@ -77,10 +77,6 @@ CREATE TABLE `topics` (
 FOREIGN KEY (topic_by) REFERENCES users(id),
 PRIMARY KEY (topic_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- link topics to categories
-
-
 
 -- topics to user
 
