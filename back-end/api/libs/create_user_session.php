@@ -12,7 +12,7 @@ function createUserSession($user)
         $statement->execute(["username" => $user["username"]]);
 
         if ($statement->rowCount() == 0) {
-            return ["status" => $user, "message" => "Не е открит потребител с това потребителско име!", "code" => 400];
+            return ["status" => "error", "message" => "Не е открит потребител с това потребителско име!", "code" => 400];
         }
 
         $user_from_db = $statement->fetch(PDO::FETCH_ASSOC);
