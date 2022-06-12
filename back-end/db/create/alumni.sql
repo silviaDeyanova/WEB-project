@@ -32,13 +32,13 @@ USE `alumni`;
 CREATE TABLE `users` (
   `id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
   `username` varchar(30) NOT NULL UNIQUE,
-  `password` varchar(50) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `full_name` varchar(50) NOT NULL,
   `fn` int(11) NOT NULL UNIQUE,
   `email` varchar(50) NOT NULL UNIQUE,
-  `graduation` year(4) DEFAULT 1970,
-  `major` varchar(50) NOT NULL,
-  `groupN` int(10) NOT NULL
+  `graduation` year(4),
+  `major` varchar(50),
+  `groupN` int(10)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -46,9 +46,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `full_name`, `fn`, `email`, `graduation`, `major`, `groupN`) VALUES
-(NULL, 'sjdejanova', '$2y$10$kfa3dpzmQACfmNdtHS4OUOKNssNZbIRHyMr4K7kpy/Y', 'Silvia Deyanova', 62123, 'sjdejanova@uni-sofia.bg', 2023, 'Software Engineering', 3),
-(NULL, 'stanislgi1', '$2y$10$g0cNI/o3HbVmbwZkLXuuKuqbvJNr4/b3TWIU6vXTzSe', 'Stanislava Ivanova', 62463, 'stanislgi1@uni-sofia.bg', 2023, 'Software Engineering', 3),
-(NULL, 'arhalachev', '$2y$10$uaDBQbImO2I0OyPZ8IlUwuM0FUE5inxsSIkjF7Gf0ki', 'Asibe Halacheva', 62497, 'arhalachev@uni-sofia.bg', 2023, 'Software Engineering', 3);
+(1, 'sjdejanova', '$2y$10$yXoONHqZ9lExslTyk1wFJ./4b2FpMkRzKy9XDPObWIgSxiEwWlg22', 'Silvia Deyanova', 62448, 'sjdejanova@uni-sofia.bg', 2023, 'Software Engineering', 3),
+(2, 'stanislgi1', '$2y$10$foJL0YFlm0kJKjQVbVDl3O0ZT1nzfagpeYG4Qg0efhmaKeluVmEJW', 'Stanislava Ivanova', 62463, 'stanislgi1@uni-sofia.bg', 2023, 'Software Engineering', 3);
 
 -- --------------------------------------------------------
 
@@ -79,20 +78,16 @@ FOREIGN KEY (topic_by) REFERENCES users(id),
 PRIMARY KEY (topic_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- link topics to categories
-
-
-
 -- topics to user
 
 INSERT INTO `topics` (`topic_id`, `topic_name`, `topic_subject`, `topic_by`) VALUES
-(2, 'Тема 1 ', 'Описание', 3);
+(2, 'Тема 1 ', 'Описание', 2);
 
 INSERT INTO `topics` (`topic_name`, `topic_subject`, `topic_by`) VALUES
-('Тема 2 ', 'Описание ново', 3);
+('Тема 2 ', 'Описание ново', 2);
 
 INSERT INTO `topics` (`topic_name`, `topic_subject`,`topic_by`) VALUES
-('Тема 3 ', 'Проба', 3);
+('Тема 3 ', 'Проба', 2);
 
 
 

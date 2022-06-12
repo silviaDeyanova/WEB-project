@@ -12,13 +12,13 @@
   <body>
     <header>
       <nav class="top-nav">
-	<li><a href="../../index.html">Начало</a></li>
+        <li><a href="../../index.html">Начало</a></li>
       </nav>
       <h1>Алумни клуб на ФМИ</h1>
     </header>
     <div class="container">
       <h2>Вход</h2>
-      <form method="post">
+      <form id="login-form">
         <input
           type="text"
           name="username"
@@ -33,7 +33,7 @@
         />
         <div class="hidden" id="response"></div>
         <div id="buttons">
-          <button id="login">Влизане</button>
+          <button id="login" type="submit">Влизане</button>
           <button id="register">Регистрация</button>
         </div>
       </form>
