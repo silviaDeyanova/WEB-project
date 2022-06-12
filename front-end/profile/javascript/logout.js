@@ -10,6 +10,8 @@
         if (data["status"] === "error") {
           throw new Error(data["message"]);
         } else {
+	  localStorage.removeItem("username");
+          localStorage.removeItem("threads");
           window.location.href = "../../index.html";
         }
         })
