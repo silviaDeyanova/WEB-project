@@ -17,7 +17,8 @@ function createUserSession($user)
 
         $user_from_db = $statement->fetch(PDO::FETCH_ASSOC);
 
-        if (!password_verify($user["password"], $user_from_db["password"])) {
+        if (!password_verify(password_hash($user["password"], PASSWORD_DEFAULT), $user_from_db["password"])) {
+        // if (!password_verify($user["password"], $user_from_db["password"])) {
             return ["status" => "error", "message" => "Грешна парола!", "code" => 400];
         }
     } catch (PDOException $e) {
