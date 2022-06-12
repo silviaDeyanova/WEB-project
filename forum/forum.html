@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="../css/forum_style.css" rel="stylesheet">
-    <script src="forum_data.js"></script> 
     <title>Форум - Алумни клуб ФМИ</title>
   </head>
   <body>
@@ -14,32 +13,62 @@
           <h1>
               Форум
           </h1>
-        <button onClick="window.location.href='add_topic.html';">  
-            Добави тема  
-        </button> 
     </secction>
     </header>
+    <article class="topic">
+        <section class="add_topic"></section>
+        <input type="text" placeholder="Тема" class="my_topic" minlength="1" required>
+        <input type="text" placeholder="Описание" class="my_content" minlength="1" required>
+        <button>Добави тема</button>
+        <section class="topics"></section>
+    </article>
     <article class="main">
         <ol>
         </ol>
     </article>
+    <script src="forum_data.js"></script> 
     <script>
         console.log(threads);
         let container=document.querySelector('ol');
-        for(let thread of threads){
-            var html=`
-            <li class="row">
+
+            function addThread(thread){
+                let threadhtml=`
+                <li class="row">
                 <a href="discussion_page.html?${thread.id}">
                     <h4 class="title">${thread.title} </h4>
                     <section class="bottom">
                         <p class="time">${new Date(thread.date).toLocaleString()}</p>
-                        <p class="coment-count">${thread.comments.length} комeнтарa</p>
+                        
                     </section>
                 </a>
-            </li>
-            `
-            container.insertAdjacentHTML('beforeend',html);
-        }
+                </li>
+                `
+                container.insertAdjacentHTML('beforeend',threadhtml);
+            }
+
+            
+            for(let thread of threads){
+                addThread(thread);
+            }
+
+            let btn =document.querySelector('button');
+            btn.addEventListener('click',function(){
+            let my_topic=document.querySelector('.my_topic');
+            let my_content=document.querySelector('.my_content');
+            var top={
+                id:Math.floor(Math.random() * 100),  
+                title:my_topic.value,
+                content:my_content.value,
+                date:Date.now(),
+                author: 'Студент'
+            }
+            addThread(top);
+            my_topic.value='';
+            my_content.value='';
+            threads.push(top);
+            localStorage.setItem('threads',JSON.stringify(threads));
+        });
+        //window.localStorage.clear();
     </script>
 </body>
 </html>
