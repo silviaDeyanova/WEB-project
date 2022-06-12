@@ -27,13 +27,13 @@ const login = (event) => {
   if (!isEmpty) {
     fetch("../../back-end/api/login/login.php", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      // headers: {
+      //   "Content-Type": "application/json",
+      // },
       body: JSON.stringify(data),
     })
       .then((data) => {
-        return data;
+        return data.json();
       })
       .then((data) => {
         if (data["status"] === "error") {
@@ -42,7 +42,7 @@ const login = (event) => {
           responseMsg.innerHTML = "Успешно влязохте!";
           responseMsg.classList.remove("hidden");
           responseMsg.classList.add("success");
-          window.location.href = "../profile/profile.html";
+          // window.location.href = "../profile/profile.html";
         }
       })
       .catch((err) => {
