@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="./css/style.css">
-  <script async defer src="./javascript/newprofile.js"></script>
+  <script async defer src="./javascript/profile.js"></script>
   <script async defer src="./javascript/logout.js"></script>
   <title>Профил - Алумни клуб ФМИ</title>
 </head>
@@ -28,7 +28,7 @@
         <article id="info">
 	<form id="form">
           <h4>Потребителско име</h4>
-	  <input type="text" id="username" name="username" value="">
+	  <input type="text" id="username" name="username" autocomplete="off" oninput="GetInfo(this.value)">
 		
 	  <h4>Парола</h4>
 	  <input type="password" id="password" name="password" value="">
