@@ -11,15 +11,12 @@ function createUserSession($user)
         $statement = $connection->prepare($selectQuery);
         $statement->execute(["username" => $user["username"]]);
         
-
         if ($statement->rowCount() == 0) {
             return ["status" => $user, "message" => "Не е открит потребител с това потребителско име!", "code" => 400];
         }
 
         $user_from_db = $statement->fetch(PDO::FETCH_ASSOC);
 
-
-        // if (!password_verify(password_hash($user["password"], PASSWORD_DEFAULT), $user_from_db["password"])) {
         if (!password_verify($user["password"], $user_from_db["password"])) {
             return ["status" => "error", "message" => "Грешна парола!", "code" => 400];
         }
