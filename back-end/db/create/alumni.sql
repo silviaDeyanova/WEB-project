@@ -47,7 +47,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `username`, `password`, `full_name`, `fn`, `email`, `graduation`, `major`, `groupN`) VALUES
 (1, 'sjdejanova', '$2y$10$yXoONHqZ9lExslTyk1wFJ./4b2FpMkRzKy9XDPObWIgSxiEwWlg22', 'Silvia Deyanova', 62448, 'sjdejanova@uni-sofia.bg', 2023, 'Software Engineering', 3),
-(2, 'stanislgi1', '$2y$10$foJL0YFlm0kJKjQVbVDl3O0ZT1nzfagpeYG4Qg0efhmaKeluVmEJW', 'Stanislava Ivanova', 62463, 'stanislgi1@uni-sofia.bg', 2023, 'Software Engineering', 3);
+(2, 'stanislgi1', '$2y$10$foJL0YFlm0kJKjQVbVDl3O0ZT1nzfagpeYG4Qg0efhmaKeluVmEJW', 'Stanislava Ivanova', 62463, 'stanislgi1@uni-sofia.bg', 2023, 'Software Engineering', 3), 
+(3, 'arhalachev', '$2y$10$fek8734Ztplf9O6GWqmz..Q4vqxQIW/1iu63kxLmiq.E80NgU9Uj.', 'Asibe Halacheva', 62497, 'arhalachev@uni-sofia.bg', 2023, 'Software Engineering', 3);
 
 -- --------------------------------------------------------
 
