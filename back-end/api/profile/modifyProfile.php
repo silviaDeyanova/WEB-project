@@ -11,7 +11,18 @@ $graduation = $phpInput['graduation'];
 $major = $phpInput['major'];
 $groupN = $phpInput['groupN'];
 
-
+     function updateUser($user)
+        {
+            $this->validate($user->password, $user->email, $user->firstName, $user->lastName);
+            $query = $this->userRepository->updateUserQuery([
+                "password" => $user->password,
+                "firstName" => $user->firstName,
+                "lastName" => $user->lastName,
+                "email" => $user->email
+            ]);
+        }
+   
+   
 try {
     $userService->updateUser($user);
 } catch (Exception $e) {
@@ -26,5 +37,3 @@ echo json_encode([
     'success' => true,
     'message' => "Информацията е обновена успешно!",
 ], JSON_UNESCAPED_UNICODE);
-
-?>
