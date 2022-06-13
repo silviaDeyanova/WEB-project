@@ -1,15 +1,33 @@
 <?php
+require_once("../../db/connection/connect.php");
 
 $phpInput = json_decode(file_get_contents('php://input'), true);
 header('Content-Type: application/json');
 
-$firstName = $phpInput['username'];
-$password = $phpInput['password'];
-$fn = $phpInput['fn'];
-$email = $phpInput['email'];
-$graduation = $phpInput['graduation'];
-$major = $phpInput['major'];
-$groupN = $phpInput['groupN'];
+    $username = $phpInput['username'];
+    $password = $phpInput['password'];
+    $fn = $phpInput['fn'];
+    $email = $phpInput['email'];
+    $graduation = $phpInput['graduation'];
+    $major = $phpInput['major'];
+    $groupN = $phpInput['groupN'];
+
+    public function updateUserQuery($data)
+        {
+            $this->database->getConnection()->beginTransaction();   
+            try {
+                $sql = "UPDATE users SET password = :password, firstName = :firstName, 
+                        lastName = :lastName, email = :email WHERE id = '{$_SESSION['userId']}'";
+                $this->updateUser = $this->database->getConnection()->prepare($sql);
+                $this->updateUser->execute($data);
+                $this->database->getConnection()->commit();   
+                return ["success" => true];
+            } catch (PDOException $e) {
+                echo "exception test";
+                $this->database->getConnection()->rollBack();
+                return ["success" => false, "error" => "Connection failed: " . $e->getMessage()];
+            }
+        }
 
      function updateUser($user)
         {
