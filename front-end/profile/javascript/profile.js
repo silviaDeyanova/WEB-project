@@ -34,10 +34,14 @@ submitBtn.addEventListener('click', (event) => {
   const groupN = document.getElementById("groupN");
 	
   const formData = {
+    username: username.value,
     password: password.value,
-    firstName: firstName.value,
-    lastName: lastName.value,
-    email: email.value
+    full_name: full_name.value,
+    fn: fn.value,
+    email: email.value,
+    graduation: graduation.value,
+    major: major.value,
+    groupN: groupN.value
   };
 
   updateProfile(formData);
@@ -46,7 +50,7 @@ submitBtn.addEventListener('click', (event) => {
 async function updateProfile(formData) {
   const data = new FormData();
 
-  fetch('../../backend/endpoints/modifyProfile.php', {
+  fetch('../../back-end/api/profile/modifyProfile.php', {
     method: 'PUT',
     headers: {
       "Content-Type": "application/json; charset=utf-8",
