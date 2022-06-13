@@ -24,6 +24,8 @@ const submitBtn = document.getElementById("button");
 submitBtn.addEventListener('click', (event) => {
   event.preventDefault();
 
+  const username = document.getElementById("username");
+  const password = document.getElementById("password");
   const password = document.getElementById("password");
   const firstName = document.getElementById("firstName");
   const lastName = document.getElementById("lastName");
