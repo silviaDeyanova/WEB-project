@@ -51,7 +51,7 @@
             responseMsg.innerHTML = "Успешно влязохте!";
             responseMsg.classList.remove("hidden");
             responseMsg.classList.add("success");
-            window.location.href = "../profile/profile.html";
+            window.location.href = "../../profile/profile.html";
           }
         })
         .catch((err) => {
