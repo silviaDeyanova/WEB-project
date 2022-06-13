@@ -4,10 +4,13 @@ require_once("../../db/connection/connect.php");
 $phpInput = json_decode(file_get_contents('php://input'), true);
     header('Content-Type: application/json');
 
+    $username = $phpInput['username'];
     $password = $phpInput['password'];
-    $firstName = $phpInput['firstName'];
-    $lastName = $phpInput['lastName'];
+    $fn = $phpInput['fn'];
     $email = $phpInput['email'];
+    $graduation = $phpInput['graduation'];
+    $major = $phpInput['major'];
+    $groupN = $phpInput['groupN'];
 
     public function updateUserQuery($data)
         {
