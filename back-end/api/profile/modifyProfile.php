@@ -22,10 +22,19 @@ if (empty($phpInput['username']) || empty($phpInput['password'])) {
     try {
         $db = new DB();
         $connection = $db->getConnection();
-        $sql = "UPDATE users SET password = :password, graduation = :graduation, major = :major, groupN = :groupN WHERE username = " . $username;
+        $sql = "UPDATE users SET groupN = :groupN WHERE username = " . $username;
         $updateUser = $connection->prepare($sql);
-        echo json_encode(["status" => "success", "message" => "Успешна промяна!"], JSON_UNESCAPED_UNICODE);
-        $updateUser->execute(["password" => $password, "graduation" => $graduation, "major" => $major, "groupN" => $groupN]);
+        if($updateUser->execute(["password" => password_hash($password, PASSWORD_DEFAULT), "graduation" => $graduation, "major" => $major, "groupN" => $groupN])){
+            http_response_code(201);
+            echo json_encode([
+                "status" => "success",
+                "message" => "Профилът ви е обновен успешно!",
+            ], JSON_UNESCAPED_UNICODE);
+        }
+        else{
+            http_response_code(400);
+            echo json_encode(["status" => "success", "message" => "Успешна промяна!"], JSON_UNESCAPED_UNICODE);
+        }
     } catch (PDOException $e) {
         return json_encode(["status" => "error", "message" => "Възникна грешка при промяната на профила!"], JSON_UNESCAPED_UNICODE);
     }
