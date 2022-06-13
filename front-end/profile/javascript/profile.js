@@ -70,7 +70,7 @@ async function updateProfile(formData) {
     })
     .catch((error) => {
       const message = "Грешка при обновяване на профила";
-      console.log(error);
-      console.error(message);
+      // console.log(error);
+      // console.error(message);
     });
 }
