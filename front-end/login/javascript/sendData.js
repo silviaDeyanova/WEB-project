@@ -47,10 +47,11 @@
           if (data["status"] === "error") {
             throw new Error(data["message"]);
           } else {
+            sessionStorage.setItem("username", document.getElementById("username").value);
             responseMsg.innerHTML = "Успешно влязохте!";
             responseMsg.classList.remove("hidden");
             responseMsg.classList.add("success");
-            window.location.href = "../profile/profile.html";
+            window.location.href = "../../profile/profile.html";
           }
         })
         .catch((err) => {

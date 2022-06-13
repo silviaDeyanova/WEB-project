@@ -1,27 +1,20 @@
-(function() {
-  return fetch("../../back-end/api/profile/profile.php")
-  .then((data) => {
-    return data.json();
-  })
-  .then((data) => {
-    if (data["status"] === "error") {
-      throw new Error(data["message"]);
-    } else {
-      addProfileInfo(data["data"]);
-    }
-  })
-  .catch((error) => {
-    console.log(error);
-  })
-})()
-
-function addProfileInfo(userInfo) {
-  document.getElementById("username").value = userInfo.username;
-  document.getElementById("password").value = userInfo.password;
-  document.getElementById("full_name").innerHTML = userInfo.full_name;
-  document.getElementById("fn").value = userInfo.fn;
-  document.getElementById("email").value = userInfo.email;
-  document.getElementById("graduation").value = userInfo.graduation;
-  document.getElementById("major").value = userInfo.major;
-  document.getElementById("groupN").value = userInfo.groupN;
+function GetInfo(usrname) {
+  if (usrname.length != 0) {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function () {
+	  if (this.readyState == 4 && this.status == 200 && usrname == sessionStorage.getItem("username")) {
+        var myObj = JSON.parse(this.responseText);         
+        document.getElementById("password").value = myObj[0];
+        document.getElementById("full_name").innerHTML = myObj[1];
+        document.getElementById("fn").value = myObj[2];
+        document.getElementById("email").value = myObj[3];
+        document.getElementById("graduation").value = myObj[4];
+        document.getElementById("major").value = myObj[5];
+        document.getElementById("groupN").value = myObj[6];
+      }
+    };
+  
+    xmlhttp.open("GET", "../../back-end/api/profile/profile.php?username=" + usrname, true);
+    xmlhttp.send();
+  }
 }
