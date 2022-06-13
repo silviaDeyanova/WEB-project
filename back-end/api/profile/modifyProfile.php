@@ -10,6 +10,7 @@ $graduation = $phpInput['graduation'];
 $major = $phpInput['major'];
 $groupN = $phpInput['groupN'];
 
+
 $db = new DB();
 $connection = $db->getConnection();
 try {
