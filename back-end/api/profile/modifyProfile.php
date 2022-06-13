@@ -20,9 +20,8 @@ $db = new DB();
 $connection = $db->getConnection();
             try {
                 $sql = "UPDATE users SET password = :password, graduation = :graduation, major = :major, groupN = :groupN WHERE username = '{$username}'";
-                $this->updateUser = $this->database->getConnection()->prepare($sql);
-                $this->updateUser->execute($data);
-                $this->database->getConnection()->commit();   
+                $updateUser = $connection()->prepare($sql);
+                $updateUser->execute($data);   
                 return ["success" => true];
             } catch (PDOException $e) {
                 echo "exception test";
