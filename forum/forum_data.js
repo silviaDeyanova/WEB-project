@@ -68,4 +68,4 @@ if (localStorage && localStorage.getItem('threads')) {
 
 
 
-window.localStorage.clear();
+//window.localStorage.clear();
