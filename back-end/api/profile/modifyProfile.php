@@ -13,7 +13,7 @@ $major = $phpInput['major'];
 $groupN = $phpInput['groupN'];
 
 
-$username = sessionStorage . getItem("username");
+$username = sessionStorage.getItem("username");
 $db = new DB();
 $connection = $db->getConnection();
 try {
