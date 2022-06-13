@@ -11,15 +11,14 @@ $major = $phpInput['major'];
 $groupN = $phpInput['groupN'];
 
 
-$db = new DB();
-$connection = $db->getConnection();
 try {
-    $sql = "UPDATE users SET password = :password, graduation = :graduation, major = :major, groupN = :groupN WHERE username = :username";
+    $db = new DB();
+    $connection = $db->getConnection();
+    $sql = "UPDATE users SET password = :password, graduation = :graduation, major = :major, groupN = :groupN WHERE username = " . $username;
     $updateUser = $connection()->prepare($sql);
-    $updateUser->execute(["password = :password", "graduation = :graduation", "major = :major", "groupN = :groupN", "username = :username"]);
+    $updateUser->execute(["password" => $password, "graduation" => $graduation, "major" => $major, "groupN" => $groupN]);
     echo json_encode(["status" => "success", "message" => "Профилът ви беше променен успешно!"], JSON_UNESCAPED_UNICODE);
+    // echo json_encode(["status" => "success", "message" => $sql], JSON_UNESCAPED_UNICODE);
 } catch (PDOException $e) {
     return json_encode(["status" => "error", "message" => "Възникна грешка при промяната на профила!"], JSON_UNESCAPED_UNICODE);
 }
-
-?>
