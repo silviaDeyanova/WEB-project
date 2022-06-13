@@ -36,9 +36,9 @@ CREATE TABLE `users` (
   `full_name` varchar(50) NOT NULL,
   `fn` int(11) NOT NULL UNIQUE,
   `email` varchar(50) NOT NULL UNIQUE,
-  `graduation` year(4),
-  `major` varchar(50),
-  `groupN` int(10)
+  `graduation` year(4) NOT NULL,
+  `major` varchar(50) NOT NULL,
+  `groupN` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
