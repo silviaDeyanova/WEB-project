@@ -26,10 +26,12 @@ submitBtn.addEventListener('click', (event) => {
 
   const username = document.getElementById("username");
   const password = document.getElementById("password");
-  const password = document.getElementById("password");
-  const firstName = document.getElementById("firstName");
-  const lastName = document.getElementById("lastName");
+  const full_name = document.getElementById("full_name");
+  const fn = document.getElementById("fn");
   const email = document.getElementById("email");
+  const graduation = document.getElementById("graduation");
+  const major = document.getElementById("major");
+  const groupN = document.getElementById("groupN");
 	
   const formData = {
     password: password.value,
