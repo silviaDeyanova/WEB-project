@@ -19,7 +19,7 @@ function GetInfo(usrname) {
   }
 }
 
-const submitBtn = document.getElementById('submit-button');
+const submitBtn = document.getElementById("button");
 
 submitBtn.addEventListener('click', (event) => {
   event.preventDefault();
@@ -28,20 +28,7 @@ submitBtn.addEventListener('click', (event) => {
   const firstName = document.getElementById("firstName");
   const lastName = document.getElementById("lastName");
   const email = document.getElementById("email");
-
-  if (!validateEmail(email.value)) {
-    showError(email, "Невалиден имейл адрес.");
-    return;
-  }
-  if (!validatePassword(password.value)) {
-    showError(password, "Невалидна парола.");
-    return;
-  }
-  if (!firstName.value || !lastName.value || !isBetween(firstName.value.length, 1, 50) || !isBetween(lastName.value.length, 1, 50)) {
-    showError(firstName, "Невалидно име или фамилия.");
-    return;
-  }
-  showSuccess(password, "Промените са запазени успешно.");
+	
   const formData = {
     password: password.value,
     firstName: firstName.value,
