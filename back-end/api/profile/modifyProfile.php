@@ -4,10 +4,10 @@ require_once("../../db/connection/connect.php");
 $phpInput = json_decode(file_get_contents('php://input'), true);
 header('Content-Type: application/json');
 
-    $username = $phpInput['username'];
+    //$username = $phpInput['username'];
     $password = $phpInput['password'];
-    $fn = $phpInput['fn'];
-    $email = $phpInput['email'];
+    //$fn = $phpInput['fn'];
+    //$email = $phpInput['email'];
     $graduation = $phpInput['graduation'];
     $major = $phpInput['major'];
     $groupN = $phpInput['groupN'];
@@ -15,11 +15,11 @@ header('Content-Type: application/json');
     //public function updateUserQuery($data)
       //  {
             //$this->database->getConnection()->beginTransaction();  
+$username = sessionStorage.getItem("username");
 $db = new DB();
 $connection = $db->getConnection();
             try {
-                $sql = "UPDATE users SET password = :password, firstName = :firstName, 
-                        lastName = :lastName, email = :email WHERE id = '{$_SESSION['userId']}'";
+                $sql = "UPDATE users SET password = :password, graduation = :graduation, major = :major, groupN = :groupN WHERE username = '{$username}'";
                 $this->updateUser = $this->database->getConnection()->prepare($sql);
                 $this->updateUser->execute($data);
                 $this->database->getConnection()->commit();   
