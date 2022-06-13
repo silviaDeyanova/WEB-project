@@ -12,9 +12,11 @@ header('Content-Type: application/json');
     $major = $phpInput['major'];
     $groupN = $phpInput['groupN'];
 
-    public function updateUserQuery($data)
-        {
-            $this->database->getConnection()->beginTransaction();   
+    //public function updateUserQuery($data)
+      //  {
+            //$this->database->getConnection()->beginTransaction();  
+$db = new DB();
+$connection = $db->getConnection();
             try {
                 $sql = "UPDATE users SET password = :password, firstName = :firstName, 
                         lastName = :lastName, email = :email WHERE id = '{$_SESSION['userId']}'";
