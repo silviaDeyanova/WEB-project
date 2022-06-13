@@ -1,4 +1,5 @@
 <?php
+require_once("../../db/connection/connect.php");
 
 $phpInput = json_decode(file_get_contents('php://input'), true);
     header('Content-Type: application/json');
