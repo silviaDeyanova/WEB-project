@@ -19,38 +19,8 @@ $connection = $db->getConnection();
 try {
     $sql = "UPDATE users SET password = :password, graduation = :graduation, major = :major, groupN = :groupN WHERE username = '{$username}'";
     $updateUser = $connection()->prepare($sql);
-    $updateUser->execute($data);
-    return ["success" => true];
+    $updateUser->execute(["password = :password", "graduation = :graduation", "major = :major", "groupN = :groupN"]);
+    echo json_encode(["status" => "success", "message" => "Профилът ви беше променен успешно!"], JSON_UNESCAPED_UNICODE);
 } catch (PDOException $e) {
-    echo "exception test";
-    $this->database->getConnection()->rollBack();
-    return ["success" => false, "error" => "Connection failed: " . $e->getMessage()];
+    return json_encode(["status" => "error", "message" => "Възникна грешка при промяната на профила!"], JSON_UNESCAPED_UNICODE);
 }
-
-
-function updateUser($user)
-{
-    $this->validate($user->password, $user->email, $user->firstName, $user->lastName);
-    $query = $this->userRepository->updateUserQuery([
-        "password" => $user->password,
-        "firstName" => $user->firstName,
-        "lastName" => $user->lastName,
-        "email" => $user->email
-    ]);
-}
-
-
-try {
-    $userService->updateUser($user);
-} catch (Exception $e) {
-    echo json_encode([
-        'success' => false,
-        'message' => $e->getMessage(),
-    ], JSON_UNESCAPED_UNICODE);
-    exit();
-}
-
-echo json_encode([
-    'success' => true,
-    'message' => "Информацията е обновена успешно!",
-], JSON_UNESCAPED_UNICODE);
