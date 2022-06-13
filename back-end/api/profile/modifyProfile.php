@@ -12,15 +12,14 @@ header('Content-Type: application/json');
     $major = $phpInput['major'];
     $groupN = $phpInput['groupN'];
 
-    public function updateUserQuery($data)
-        {
-            $this->database->getConnection()->beginTransaction();   
+    $db = new DB();
+    $connection = $db->getConnection();
+
             try {
-                $sql = "UPDATE users SET password = :password, firstName = :firstName, 
-                        lastName = :lastName, email = :email WHERE id = '{$_SESSION['userId']}'";
-                $this->updateUser = $this->database->getConnection()->prepare($sql);
-                $this->updateUser->execute($data);
-                $this->database->getConnection()->commit();   
+                $query = "UPDATE users SET password = :password, graduation = :graduation, 
+                        major = :major, email = :email WHERE username = :username";
+                   $statement = $connection->prepare($query);
+                   $statement->execute(["username" => $username]);
                 return ["success" => true];
             } catch (PDOException $e) {
                 echo "exception test";
