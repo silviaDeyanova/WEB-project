@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="events.css" rel="stylesheet"> 
+    <script src="date.js"></script>
     <title>Събития</title>
   </head>
   <body>
@@ -13,14 +14,72 @@
         <img src="../../img/fmi-logo-bg.png" class="logo" alt="logo">
         <nav class="top-nav">
           <ul>
-            <li><a href="../index.html">Начало</a></li>
-            <li><a href="#">Събития</a></li>
-            <li><a href="#">Общност</a></li>
+            <li><a href="../profile/profile.html">Профил</a></li>
+            <li><a href="./events.html">Събития</a></li>
           </ul>
         </nav>
       </section>
+    </header>
       <section class="banner" id="banner">
-          <h4>Новини</h4>
+          <h4>Събития</h4>
+      </section>
+      <section>
+        <ol>
+          <li>
+            <h3>ОТБОРИТЕ НА ФМИ, СУ "СВ. КЛ. ОХРИДСКИ", ЗАВОЮВАХА ПЪРВО МЯСТО НА XXXIV РЕПУБЛИКАНСКА СТУДЕНТСКА ОЛИМПИАДА ПО ПРОГРАМИРАНЕ 2022 </h3>
+            <p>На 14 май 2022 г. (събота) от 10 до 15ч. в гр. Русе се проведе присъствено XXXIV РЕПУБЛИКАНСКА СТУДЕНТСКА ОЛИМПИАДА ПО ПРОГРАМИРАНЕ (РСОП) / National Student Programming Contest, в която участваха 14 отбора от 7 университета, обучаващи в областите на компютърните науки. Два от тях бяха на ФМИ. Олимпиадата бе организирана от Русенски университет „Ангел Кънчев“.  
+
+              В олимпиадата участваха общо два отбора на ФМИ, с ръководител доц. Милен Петров.</p>
+            <p class="current_date"></p>
+            <script>
+              date = new Date();
+              year = date.getFullYear();
+              month = date.getMonth() + 1;
+              day = date.getDate();
+              document.getElementsByClassName("current_date")[0].innerHTML = month + "/" + day + "/" + year;
+            </script>
+          </li>
+          <li>
+            <h3>XIII Форум на кариерното развитие </h3>
+            <p>На 7.06.2022 г. в двора на Факултета по математика и информатика на Софийския университет бе официалното откриване на тринадесетото издание на Форума на кариерното развитие на Факултета. Tой се провежда под мотото "Знам и искам да го докажа". Организатор на събитието е Кариерният център на Факултета. Форумът дава възможност за среща на живо между работодателите и студентите от всички факултети на Софийския университет и студенти от други университети.</p>
+            <p class="current_date"></p>
+            <script>
+              date = new Date();
+              year = date.getFullYear();
+              month = date.getMonth() + 1;
+              day = date.getDate();
+              document.getElementsByClassName("current_date")[1].innerHTML = month + "/" + day + "/" + year;
+            </script>
+          </li>
+          <li>
+            <h3>Катедра Информационни Технологии организира защита на дипломни работи, 29.06.2022 </h3>
+            <p>За дипломанти в магистърски програми БМИ, ЕО, РСМТ
+              Дипломна защита: 29 юни  2022 г.</p>
+            <p class="current_date"></p>
+            <script>
+              date = new Date();
+              year = date.getFullYear();
+              month = date.getMonth() + 1;
+              day = date.getDate();
+              document.getElementsByClassName("current_date")[2].innerHTML = month + "/" + day + "/" + year;
+            </script>
+          </li>
+          <li>
+            <h3>Дати за Държавен изпит, 2022</h3>
+            <p>Приети са следните дати за провеждане на Държавен изпит - ОКС "Бакалавър" през 2022 г.
+
+              Втора държавна  сесия - 12 и 13 юли 2022 г. (за студенти завършили през 2021 г.);
+              Първа държавна сесия - 07 и 08 септември 2022 г. (за студенти завършили през 2021/2022 уч. г).</p>
+            <p class="current_date"></p>
+            <script>
+              date = new Date();
+              year = date.getFullYear();
+              month = date.getMonth() + 1;
+              day = date.getDate();
+              document.getElementsByClassName("current_date")[3].innerHTML = month + "/" + day + "/" + year;
+            </script>
+          </li>
+        </ol>
       </section>
 
 
